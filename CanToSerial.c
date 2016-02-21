@@ -68,16 +68,15 @@ void main(void) {
         }
         if (newMessageUsart == 1) {
             RTR = usartRx [0];
-            id = usartRx[1];
-            id = ((id << 8) | usartRx[0]);
+            id = usartRx[2];
+            id = ((id << 8) | usartRx[1]);
             for (int i = 0; i < 8; i++) {
                 data[i] = usartRx[(i + 3)];
             }
             if (CANisTxReady()) {
-                if (RTR == 1){
-                CANsendMessage(id, data, 8, CAN_CONFIG_STD_MSG & CAN_REMOTE_TX_FRAME & CAN_TX_PRIORITY_0);
-                }
-                else {
+                if (RTR == 1) {
+                    CANsendMessage(id, data, 8, CAN_CONFIG_STD_MSG & CAN_REMOTE_TX_FRAME & CAN_TX_PRIORITY_0);
+                } else {
                     CANsendMessage(id, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
                 }
             }
@@ -110,7 +109,9 @@ void configurazione_iniziale(void) {
             CAN_CONFIG_ALL_VALID_MSG & CAN_CONFIG_DBL_BUFFER_ON); //Canbus 125kHz (da cambiare)
 
     OpenUSART(USART_TX_INT_OFF & USART_RX_INT_ON & USART_ASYNCH_MODE & USART_EIGHT_BIT
-            & USART_BRGH_HIGH, 103); //Seriale asincrona, 8bit, 9600baud
+            & USART_BRGH_HIGH & USART_CONT_RX, 103); //Seriale asincrona, 8bit, 9600baud
+
+    RCSTAbits.SPEN = 1; //abilita la periferica
 
     LATA = 0x00;
     TRISA = 0b01111101;
