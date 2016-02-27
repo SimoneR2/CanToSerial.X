@@ -41,9 +41,9 @@ unsigned long id = 0;
 unsigned char data [8] = 0;
 
 volatile bit dir = 0;
-volatile unsigned char set_steering = 0;
-volatile unsigned char set_speed[8] = 0;
-volatile unsigned char analogic_brake = 0;
+unsigned char set_steering[8] = 0;
+unsigned char set_speed[8] = 0;
+unsigned char analogic_brake[8] = 0;
 
 volatile unsigned char set_steering_old = 0;
 volatile unsigned char set_speed_old[8] = 0;
@@ -64,16 +64,16 @@ __interrupt(low_priority) void ISR_bassa(void) {
         getsUSART((char*) USART_Rx, 7);
         if ((USART_Rx[0] == 0xAA)&&(USART_Rx[6] == 0xAA)) {
 
-            set_steering_old = set_steering;
+            set_steering_old = set_steering[0];
             set_speed_old[0] = set_speed[0];
             set_speed_old[1] = set_speed[1];
-            analogic_brake_old = analogic_brake;
+            analogic_brake_old = analogic_brake[0];
 
             set_speed[2] = USART_Rx[1]; //direction
             set_speed[0] = USART_Rx[2];
             set_speed[1] = USART_Rx[3];
-            set_steering = USART_Rx[4];
-            analogic_brake = USART_Rx[5];
+            set_steering[0] = USART_Rx[4];
+            analogic_brake[0] = USART_Rx[5];
         }
         PIR1bits.RC1IF = 0;
         ;
@@ -89,14 +89,14 @@ void main(void) {
             newMessageCan = 0;
         }
         if (newMessageUsart == 1) {
-            if (set_steering_old != set_steering) {
+            if (set_steering_old != set_steering[0]) {
                 CANsendMessage(STEERING_CHANGE, set_steering, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
             }
             if ((set_speed_old[0] != set_speed[0])&&(set_speed_old[1] != set_speed[1])) {
                 CANsendMessage(SPEED_CHANGE, set_speed, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
             }
-            if (analogic_brake_old != analogic_brake) {
-               CANsendMessage(BRAKE_SIGNAL, set_speed, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+            if (analogic_brake_old != analogic_brake[0]) {
+               CANsendMessage(BRAKE_SIGNAL, analogic_brake, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
             }
              newMessageUsart = 0;
         }
