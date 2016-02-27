@@ -28,35 +28,43 @@
 #include "delay.h"
 #include "delay.c"
 void configurazione_iniziale(void);
-void serialWrite(unsigned char *array);
 volatile bit newMessageCan = 0;
 volatile bit newMessageUsart = 0;
 CANmessage msg;
-unsigned char usartTx [11] = 0;
-unsigned char usartRx[11] = 0;
-volatile bit RTR = 0;
+unsigned char USART_Tx [11] = 0;
+unsigned char USART_Rx[7] = 0;
+volatile bit RTR_Flag = 0;
 unsigned long id = 0;
 unsigned char data [8] = 0;
+
+volatile bit dir = 0;
+volatile unsigned char set_steering = 0;
+volatile unsigned int set_speed = 0;
+volatile unsigned char set_speed_pk1 = 0;
+volatile unsigned char set_speed_pk0 = 0;
+volatile unsigned char analogic_brake = 0;
 
 __interrupt(low_priority) void ISR_bassa(void) {
     if ((PIR3bits.RXB0IF == 1) || (PIR3bits.RXB1IF == 1)) {
         if (CANisRxReady()) {
             CANreceiveMessage(&msg); //leggilo e salvalo
-
-            //istruzioni per salvare i dati arrivati
-            usartTx [0] = msg.RTR;
-            usartTx [1] = msg.identifier;
-            usartTx [2] = (msg.identifier >> 8);
-            for (int i = 0; i < 8; i++) {
-                usartTx[(i + 3)] = msg.data[i];
-            }
+            RTR_Flag = msg.RTR;
+            id = msg.identifier;
             newMessageCan = 1;
         }
         PIR3bits.RXB0IF = 0;
         PIR3bits.RXB1IF = 0;
     }
     if (PIR1bits.RCIF == 1) {
-        getsUSART((char*) usartRx, 11);
+        getsUSART((char*) USART_Rx, 7);
+        if ((USART_Rx[0] == 0xAA)&&(USART_Rx[6] == 0xAA)) {
+            dir = USART_Rx[1];
+            set_speed_pk1 = USART_Rx[2];
+            set_speed_pk0 = USART_Rx[3];
+            set_steering = USART_Rx[4];
+            analogic_brake = USART_Rx[5];
+            set_speed = (set_speed_pk1 << 8)||(set_speed_pk0);
+        }
     }
 }
 
