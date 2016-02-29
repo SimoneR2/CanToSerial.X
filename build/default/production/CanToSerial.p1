@@ -997,6 +997,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1896 . . . . . ]
 "31120
 [v _PIR3bits `VS1896 ~T0 @X0 0 e@4004 ]
+"28560
+[s S1774 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1774 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"28570
+[s S1775 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1775 . PSP0 PSP1 PSP2 PSP3 PSP4 PSP5 PSP6 PSP7 ]
+"28580
+[s S1776 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1776 . C1INB C1INA C2INB C2INA P1A P1B P1C P1D ]
+"28590
+[s S1777 :4 `uc 1 :1 `uc 1 ]
+[n S1777 . . ECCP1 ]
+"28594
+[s S1778 :7 `uc 1 :1 `uc 1 ]
+[n S1778 . . SS2 ]
+"28559
+[u S1773 `S1774 1 `S1775 1 `S1776 1 `S1777 1 `S1778 1 ]
+[n S1773 . . . . . . ]
+"28599
+[v _PORTDbits `VS1773 ~T0 @X0 0 e@3971 ]
 "30625
 [s S1873 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1873 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF PSPIF ]
@@ -1013,14 +1033,52 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PIR1bits `VS1872 ~T0 @X0 0 e@3998 ]
 "598 C:\Program Files (x86)\Microchip\xc8\v1.36\include\plib\usart.h
 [v _getsUSART `(v ~T0 @X0 0 ef2`*uc`uc ]
+"30857 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic18f4480.h
+[s S1885 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1885 . ECCP1IF TMR3IF HLVDIF BCLIF EEIF . CMIF OSCFIF ]
+"30867
+[s S1886 :2 `uc 1 :1 `uc 1 ]
+[n S1886 . . LVDIF ]
+"30856
+[u S1884 `S1885 1 `S1886 1 ]
+[n S1884 . . . ]
+"30872
+[v _PIR2bits `VS1884 ~T0 @X0 0 e@4001 ]
+"32057
+[v _TMR3H `Vuc ~T0 @X0 0 e@4019 ]
+"32051
+[v _TMR3L `Vuc ~T0 @X0 0 e@4018 ]
 [p mainexit ]
-"31 CanToSerial.c
+"39 CanToSerial.c
 [v _configurazione_iniziale `(v ~T0 @X0 0 ef ]
-"32
+"40
 [v _can_interpreter `(v ~T0 @X0 0 ef ]
 "599 C:\Program Files (x86)\Microchip\xc8\v1.36\include\plib\usart.h
 [v _putsUSART `(v ~T0 @X0 0 ef1`*uc ]
-"31372 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic18f4480.h
+"28388 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic18f4480.h
+[s S1767 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1767 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"28398
+[s S1768 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1768 . T1OSO T1OSI CCP1 SCK SDI SDO TX RX ]
+"28408
+[s S1769 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1769 . T13CKI . SCL SDA . CK DT ]
+"28417
+[s S1770 :1 `uc 1 :1 `uc 1 ]
+[n S1770 . . CCP2 ]
+"28421
+[s S1771 :2 `uc 1 :1 `uc 1 ]
+[n S1771 . . PA1 ]
+"28425
+[s S1772 :1 `uc 1 :1 `uc 1 ]
+[n S1772 . . PA2 ]
+"28387
+[u S1766 `S1767 1 `S1768 1 `S1769 1 `S1770 1 `S1771 1 `S1772 1 ]
+[n S1766 . . . . . . . ]
+"28430
+[v _PORTCbits `VS1766 ~T0 @X0 0 e@3970 ]
+"31372
 [v _RCSTA `Vuc ~T0 @X0 0 e@4011 ]
 "31592
 [s S1924 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -1184,6 +1242,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _LATC `Vuc ~T0 @X0 0 e@3979 ]
 "29876
 [v _TRISC `Vuc ~T0 @X0 0 e@3988 ]
+"31917
+[v _T3CON `Vuc ~T0 @X0 0 e@4017 ]
+"30922
+[s S1888 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1888 . ECCP1IP TMR3IP HLVDIP BCLIP EEIP . CMIP OSCFIP ]
+"30932
+[s S1889 :2 `uc 1 :1 `uc 1 ]
+[n S1889 . . LVDIP ]
+"30921
+[u S1887 `S1888 1 `S1889 1 ]
+[n S1887 . . . ]
+"30937
+[v _IPR2bits `VS1887 ~T0 @X0 0 e@4002 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -18885,388 +18956,597 @@ Version 3.2 HI-TECH Software Intermediate Code
 "119
 [e :UE 2326 ]
 }
-[; ;CanToSerial.c: 31: void configurazione_iniziale(void);
-[; ;CanToSerial.c: 32: void can_interpreter(void);
-"34 CanToSerial.c
+[; ;CanToSerial.c: 39: void configurazione_iniziale(void);
+[; ;CanToSerial.c: 40: void can_interpreter(void);
+"42 CanToSerial.c
 [v _newMessageCan `Vb ~T0 @X0 1 e ]
 [i _newMessageCan
 -> 0 `i
 ]
-[; ;CanToSerial.c: 34: volatile bit newMessageCan = 0;
-"35
+[; ;CanToSerial.c: 42: volatile bit newMessageCan = 0;
+"43
 [v _newMessageUsart `Vb ~T0 @X0 1 e ]
 [i _newMessageUsart
 -> 0 `i
 ]
-[; ;CanToSerial.c: 35: volatile bit newMessageUsart = 0;
-"36
+[; ;CanToSerial.c: 43: volatile bit newMessageUsart = 0;
+"44
 [v _msg `S2132 ~T0 @X0 1 e ]
-[; ;CanToSerial.c: 36: CANmessage msg;
-"37
-[v _USART_Tx `uc ~T0 @X0 -> 11 `i e ]
-[i _USART_Tx
-:U ..
--> -> 0 `i `uc
-..
-]
-[; ;CanToSerial.c: 37: unsigned char USART_Tx [11] = 0;
-"38
+[; ;CanToSerial.c: 44: CANmessage msg;
+"45
 [v _USART_Rx `uc ~T0 @X0 -> 7 `i e ]
 [i _USART_Rx
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;CanToSerial.c: 38: unsigned char USART_Rx[7] = 0;
-"39
+[; ;CanToSerial.c: 45: unsigned char USART_Rx[7] = 0;
+"46
 [v _RTR_Flag `Vb ~T0 @X0 1 e ]
 [i _RTR_Flag
 -> 0 `i
 ]
-[; ;CanToSerial.c: 39: volatile bit RTR_Flag = 0;
-"40
+[; ;CanToSerial.c: 46: volatile bit RTR_Flag = 0;
+"47
 [v _id `ul ~T0 @X0 1 e ]
 [i _id
 -> -> -> 0 `i `l `ul
 ]
-[; ;CanToSerial.c: 40: unsigned long id = 0;
-"41
+[; ;CanToSerial.c: 47: unsigned long id = 0;
+"48
 [v _data `uc ~T0 @X0 -> 8 `i e ]
 [i _data
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;CanToSerial.c: 41: unsigned char data [8] = 0;
-"43
+[; ;CanToSerial.c: 48: unsigned char data [8] = 0;
+"50
 [v _dir `Vb ~T0 @X0 1 e ]
 [i _dir
 -> 0 `i
 ]
-[; ;CanToSerial.c: 43: volatile bit dir = 0;
-"44
+[; ;CanToSerial.c: 50: volatile bit dir = 0;
+"51
 [v _set_steering `uc ~T0 @X0 -> 8 `i e ]
 [i _set_steering
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;CanToSerial.c: 44: unsigned char set_steering[8] = 0;
-"45
+[; ;CanToSerial.c: 51: unsigned char set_steering[8] = 0;
+"52
 [v _set_speed `uc ~T0 @X0 -> 8 `i e ]
 [i _set_speed
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;CanToSerial.c: 45: unsigned char set_speed[8] = 0;
-"46
+[; ;CanToSerial.c: 52: unsigned char set_speed[8] = 0;
+"53
 [v _analogic_brake `uc ~T0 @X0 -> 8 `i e ]
 [i _analogic_brake
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;CanToSerial.c: 46: unsigned char analogic_brake[8] = 0;
-"48
+[; ;CanToSerial.c: 53: unsigned char analogic_brake[8] = 0;
+"55
 [v _set_steering_old `Vuc ~T0 @X0 1 e ]
 [i _set_steering_old
 -> -> 0 `i `uc
 ]
-[; ;CanToSerial.c: 48: volatile unsigned char set_steering_old = 0;
-"49
+[; ;CanToSerial.c: 55: volatile unsigned char set_steering_old = 0;
+"56
 [v _set_speed_old `Vuc ~T0 @X0 -> 8 `i e ]
 [i _set_speed_old
 :U ..
 -> -> 0 `i `uc
 ..
 ]
-[; ;CanToSerial.c: 49: volatile unsigned char set_speed_old[8] = 0;
-"50
+[; ;CanToSerial.c: 56: volatile unsigned char set_speed_old[8] = 0;
+"57
 [v _analogic_brake_old `Vuc ~T0 @X0 1 e ]
 [i _analogic_brake_old
 -> -> 0 `i `uc
 ]
-[; ;CanToSerial.c: 50: volatile unsigned char analogic_brake_old = 0;
-[v F16928 `(v ~T0 @X0 1 tf ]
-"52
-[v _ISR_bassa `IF16928 ~T51 @X0 1 e ]
+[; ;CanToSerial.c: 57: volatile unsigned char analogic_brake_old = 0;
+"59
+[v _timeCounter `Vul ~T0 @X0 1 e ]
+[i _timeCounter
+-> -> -> 0 `i `l `ul
+]
+[; ;CanToSerial.c: 59: volatile unsigned long timeCounter = 0;
+"60
+[v _previousTimeCounter `ul ~T0 @X0 1 e ]
+[i _previousTimeCounter
+-> -> -> 0 `i `l `ul
+]
+[; ;CanToSerial.c: 60: unsigned long previousTimeCounter = 0;
+"62
+[v _SerialOutput `uc ~T0 @X0 -> 0 `x e ]
+[i _SerialOutput
+:U ..
+-> -> 170 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 0 `i `uc
+-> -> 170 `i `uc
+..
+]
+[; ;CanToSerial.c: 62: unsigned char SerialOutput [] = {0xAA, 0x00, 0x00, 0x00, 0x00, 0x00, 0xAA} ;
+"63
+[v _left_speed `ui ~T0 @X0 1 e ]
+[i _left_speed
+-> -> 0 `i `ui
+]
+[; ;CanToSerial.c: 63: unsigned int left_speed = 0;
+"64
+[v _right_speed `ui ~T0 @X0 1 e ]
+[i _right_speed
+-> -> 0 `i `ui
+]
+[; ;CanToSerial.c: 64: unsigned int right_speed = 0;
+[v F16932 `(v ~T0 @X0 1 tf ]
+"66
+[v _ISR_bassa `IF16932 ~T51 @X0 1 e ]
 {
-[; ;CanToSerial.c: 52: __attribute__((interrupt("__low_priority"))) void ISR_bassa(void) {
+[; ;CanToSerial.c: 66: __attribute__((interrupt("__low_priority"))) void ISR_bassa(void) {
 [e :U _ISR_bassa ]
 [f ]
-[; ;CanToSerial.c: 53: if ((PIR3bits.RXB0IF == 1) || (PIR3bits.RXB1IF == 1)) {
-"53
+[; ;CanToSerial.c: 67: if ((PIR3bits.RXB0IF == 1) || (PIR3bits.RXB1IF == 1)) {
+"67
 [e $ ! || == -> . . _PIR3bits 0 0 `i -> 1 `i == -> . . _PIR3bits 0 1 `i -> 1 `i 2328  ]
 {
-[; ;CanToSerial.c: 54: if (CANisRxReady()) {
-"54
+[; ;CanToSerial.c: 68: PORTDbits.RD3 = ~PORTDbits.RD3;
+"68
+[e = . . _PORTDbits 0 3 -> ~ -> . . _PORTDbits 0 3 `i `uc ]
+[; ;CanToSerial.c: 69: if (CANisRxReady()) {
+"69
 [e $ ! != -> ( _CANisRxReady ..  `i -> -> -> 0 `i `uc `i 2329  ]
 {
-[; ;CanToSerial.c: 55: CANreceiveMessage(&msg);
-"55
-[e ( _CANreceiveMessage (1 &U _msg ]
-[; ;CanToSerial.c: 56: RTR_Flag = msg.RTR;
-"56
-[e = _RTR_Flag -> . _msg 4 `b ]
-[; ;CanToSerial.c: 57: id = msg.identifier;
-"57
-[e = _id . _msg 0 ]
-[; ;CanToSerial.c: 58: newMessageCan = 1;
-"58
-[e = _newMessageCan -> -> 1 `i `b ]
-"59
-}
-[e :U 2329 ]
-[; ;CanToSerial.c: 59: }
-[; ;CanToSerial.c: 60: PIR3bits.RXB0IF = 0;
-"60
-[e = . . _PIR3bits 0 0 -> -> 0 `i `uc ]
-[; ;CanToSerial.c: 61: PIR3bits.RXB1IF = 0;
-"61
-[e = . . _PIR3bits 0 1 -> -> 0 `i `uc ]
-"62
-}
-[e :U 2328 ]
-[; ;CanToSerial.c: 62: }
-[; ;CanToSerial.c: 63: if (PIR1bits.RC1IF == 1) {
-"63
-[e $ ! == -> . . _PIR1bits 1 1 `i -> 1 `i 2330  ]
-{
-[; ;CanToSerial.c: 64: getsUSART((char*) USART_Rx, 7);
-"64
-[e ( _getsUSART (2 , &U _USART_Rx -> -> 7 `i `uc ]
-[; ;CanToSerial.c: 65: if ((USART_Rx[0] == 0xAA)&&(USART_Rx[6] == 0xAA)) {
-"65
-[e $ ! && == -> *U + &U _USART_Rx * -> -> -> 0 `i `ui `ux -> -> # *U &U _USART_Rx `ui `ux `i -> 170 `i == -> *U + &U _USART_Rx * -> -> -> 6 `i `ui `ux -> -> # *U &U _USART_Rx `ui `ux `i -> 170 `i 2331  ]
-{
-[; ;CanToSerial.c: 67: set_steering_old = set_steering[0];
-"67
-[e = _set_steering_old *U + &U _set_steering * -> -> -> 0 `i `ui `ux -> -> # *U &U _set_steering `ui `ux ]
-[; ;CanToSerial.c: 68: set_speed_old[0] = set_speed[0];
-"68
-[e = *U + &U _set_speed_old * -> -> -> 0 `i `ui `ux -> -> # *U &U _set_speed_old `ui `ux *U + &U _set_speed * -> -> -> 0 `i `ui `ux -> -> # *U &U _set_speed `ui `ux ]
-[; ;CanToSerial.c: 69: set_speed_old[1] = set_speed[1];
-"69
-[e = *U + &U _set_speed_old * -> -> -> 1 `i `ui `ux -> -> # *U &U _set_speed_old `ui `ux *U + &U _set_speed * -> -> -> 1 `i `ui `ux -> -> # *U &U _set_speed `ui `ux ]
-[; ;CanToSerial.c: 70: analogic_brake_old = analogic_brake[0];
+[; ;CanToSerial.c: 70: CANreceiveMessage(&msg);
 "70
-[e = _analogic_brake_old *U + &U _analogic_brake * -> -> -> 0 `i `ui `ux -> -> # *U &U _analogic_brake `ui `ux ]
-[; ;CanToSerial.c: 72: set_speed[2] = USART_Rx[1];
+[e ( _CANreceiveMessage (1 &U _msg ]
+[; ;CanToSerial.c: 71: RTR_Flag = msg.RTR;
+"71
+[e = _RTR_Flag -> . _msg 4 `b ]
+[; ;CanToSerial.c: 72: id = msg.identifier;
 "72
-[e = *U + &U _set_speed * -> -> -> 2 `i `ui `ux -> -> # *U &U _set_speed `ui `ux *U + &U _USART_Rx * -> -> -> 1 `i `ui `ux -> -> # *U &U _USART_Rx `ui `ux ]
-[; ;CanToSerial.c: 73: set_speed[0] = USART_Rx[2];
+[e = _id . _msg 0 ]
+[; ;CanToSerial.c: 73: newMessageCan = 1;
 "73
-[e = *U + &U _set_speed * -> -> -> 0 `i `ui `ux -> -> # *U &U _set_speed `ui `ux *U + &U _USART_Rx * -> -> -> 2 `i `ui `ux -> -> # *U &U _USART_Rx `ui `ux ]
-[; ;CanToSerial.c: 74: set_speed[1] = USART_Rx[3];
+[e = _newMessageCan -> -> 1 `i `b ]
+[; ;CanToSerial.c: 74: for (char i = 0; i < 8; i++) {
 "74
-[e = *U + &U _set_speed * -> -> -> 1 `i `ui `ux -> -> # *U &U _set_speed `ui `ux *U + &U _USART_Rx * -> -> -> 3 `i `ui `ux -> -> # *U &U _USART_Rx `ui `ux ]
-[; ;CanToSerial.c: 75: set_steering[0] = USART_Rx[4];
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `uc ]
+[e $ < -> _i `i -> 8 `i 2330  ]
+[e $U 2331  ]
+[e :U 2330 ]
+{
+[; ;CanToSerial.c: 75: data[i] = msg.data[i];
 "75
-[e = *U + &U _set_steering * -> -> -> 0 `i `ui `ux -> -> # *U &U _set_steering `ui `ux *U + &U _USART_Rx * -> -> -> 4 `i `ui `ux -> -> # *U &U _USART_Rx `ui `ux ]
-[; ;CanToSerial.c: 76: analogic_brake[0] = USART_Rx[5];
+[e = *U + &U _data * -> _i `ux -> -> # *U &U _data `ui `ux *U + &U . _msg 1 * -> _i `ux -> -> # *U &U . _msg 1 `ui `ux ]
 "76
-[e = *U + &U _analogic_brake * -> -> -> 0 `i `ui `ux -> -> # *U &U _analogic_brake `ui `ux *U + &U _USART_Rx * -> -> -> 5 `i `ui `ux -> -> # *U &U _USART_Rx `ui `ux ]
+}
+"74
+[e ++ _i -> -> 1 `i `uc ]
+[e $ < -> _i `i -> 8 `i 2330  ]
+[e :U 2331 ]
+"76
+}
 "77
 }
-[e :U 2331 ]
+[e :U 2329 ]
+[; ;CanToSerial.c: 76: }
 [; ;CanToSerial.c: 77: }
-[; ;CanToSerial.c: 78: PIR1bits.RC1IF = 0;
+[; ;CanToSerial.c: 78: PIR3bits.RXB0IF = 0;
 "78
-[e = . . _PIR1bits 1 1 -> -> 0 `i `uc ]
-[; ;CanToSerial.c: 79: ;
+[e = . . _PIR3bits 0 0 -> -> 0 `i `uc ]
+[; ;CanToSerial.c: 79: PIR3bits.RXB1IF = 0;
+"79
+[e = . . _PIR3bits 0 1 -> -> 0 `i `uc ]
 "80
 }
-[e :U 2330 ]
+[e :U 2328 ]
 [; ;CanToSerial.c: 80: }
-[; ;CanToSerial.c: 81: }
+[; ;CanToSerial.c: 81: if (PIR1bits.RC1IF == 1) {
 "81
-[e :UE 2327 ]
-}
+[e $ ! == -> . . _PIR1bits 1 1 `i -> 1 `i 2333  ]
+{
+[; ;CanToSerial.c: 82: PORTDbits.RD1 = ~PORTDbits.RD1;
+"82
+[e = . . _PORTDbits 0 1 -> ~ -> . . _PORTDbits 0 1 `i `uc ]
+[; ;CanToSerial.c: 83: getsUSART((char*) USART_Rx, 7);
 "83
-[v _main `(v ~T0 @X0 1 ef ]
-{
-[; ;CanToSerial.c: 83: void main(void) {
-[e :U _main ]
-[f ]
-[; ;CanToSerial.c: 84: configurazione_iniziale();
+[e ( _getsUSART (2 , &U _USART_Rx -> -> 7 `i `uc ]
+[; ;CanToSerial.c: 84: if ((USART_Rx[0] == 0xAA)&&(USART_Rx[6] == 0xAA)) {
 "84
-[e ( _configurazione_iniziale ..  ]
-[; ;CanToSerial.c: 85: while (1) {
-"85
-[e :U 2334 ]
+[e $ ! && == -> *U + &U _USART_Rx * -> -> -> 0 `i `ui `ux -> -> # *U &U _USART_Rx `ui `ux `i -> 170 `i == -> *U + &U _USART_Rx * -> -> -> 6 `i `ui `ux -> -> # *U &U _USART_Rx `ui `ux `i -> 170 `i 2334  ]
 {
-[; ;CanToSerial.c: 86: if (newMessageCan == 1) {
+[; ;CanToSerial.c: 86: set_steering_old = set_steering[0];
 "86
-[e $ ! == -> _newMessageCan `i -> 1 `i 2336  ]
-{
-[; ;CanToSerial.c: 87: can_interpreter();
+[e = _set_steering_old *U + &U _set_steering * -> -> -> 0 `i `ui `ux -> -> # *U &U _set_steering `ui `ux ]
+[; ;CanToSerial.c: 87: set_speed_old[0] = set_speed[0];
 "87
-[e ( _can_interpreter ..  ]
-[; ;CanToSerial.c: 88: putsUSART((char *) USART_Tx);
+[e = *U + &U _set_speed_old * -> -> -> 0 `i `ui `ux -> -> # *U &U _set_speed_old `ui `ux *U + &U _set_speed * -> -> -> 0 `i `ui `ux -> -> # *U &U _set_speed `ui `ux ]
+[; ;CanToSerial.c: 88: set_speed_old[1] = set_speed[1];
 "88
-[e ( _putsUSART (1 &U _USART_Tx ]
-[; ;CanToSerial.c: 89: newMessageCan = 0;
+[e = *U + &U _set_speed_old * -> -> -> 1 `i `ui `ux -> -> # *U &U _set_speed_old `ui `ux *U + &U _set_speed * -> -> -> 1 `i `ui `ux -> -> # *U &U _set_speed `ui `ux ]
+[; ;CanToSerial.c: 89: analogic_brake_old = analogic_brake[0];
 "89
-[e = _newMessageCan -> -> 0 `i `b ]
-"90
-}
-[e :U 2336 ]
-[; ;CanToSerial.c: 90: }
-[; ;CanToSerial.c: 91: if (newMessageUsart == 1) {
+[e = _analogic_brake_old *U + &U _analogic_brake * -> -> -> 0 `i `ui `ux -> -> # *U &U _analogic_brake `ui `ux ]
+[; ;CanToSerial.c: 91: set_speed[2] = USART_Rx[1];
 "91
-[e $ ! == -> _newMessageUsart `i -> 1 `i 2337  ]
-{
-[; ;CanToSerial.c: 92: if (set_steering_old != set_steering[0]) {
+[e = *U + &U _set_speed * -> -> -> 2 `i `ui `ux -> -> # *U &U _set_speed `ui `ux *U + &U _USART_Rx * -> -> -> 1 `i `ui `ux -> -> # *U &U _USART_Rx `ui `ux ]
+[; ;CanToSerial.c: 92: set_speed[0] = USART_Rx[2];
 "92
-[e $ ! != -> _set_steering_old `i -> *U + &U _set_steering * -> -> -> 0 `i `ui `ux -> -> # *U &U _set_steering `ui `ux `i 2338  ]
-{
-[; ;CanToSerial.c: 93: CANsendMessage(0b00000000000000000000000000101, set_steering, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+[e = *U + &U _set_speed * -> -> -> 0 `i `ui `ux -> -> # *U &U _set_speed `ui `ux *U + &U _USART_Rx * -> -> -> 2 `i `ui `ux -> -> # *U &U _USART_Rx `ui `ux ]
+[; ;CanToSerial.c: 93: set_speed[1] = USART_Rx[3];
 "93
-[e ( _CANsendMessage (4 , , , -> -> -> 5 `i `l `ul &U _set_steering -> -> 8 `i `uc -> & & -> . `E16706 11 `i -> . `E16728 10 `i -> . `E16728 1 `i `E16728 ]
+[e = *U + &U _set_speed * -> -> -> 1 `i `ui `ux -> -> # *U &U _set_speed `ui `ux *U + &U _USART_Rx * -> -> -> 3 `i `ui `ux -> -> # *U &U _USART_Rx `ui `ux ]
+[; ;CanToSerial.c: 94: set_steering[0] = USART_Rx[4];
 "94
-}
-[e :U 2338 ]
-[; ;CanToSerial.c: 94: }
-[; ;CanToSerial.c: 95: if ((set_speed_old[0] != set_speed[0])&&(set_speed_old[1] != set_speed[1])) {
+[e = *U + &U _set_steering * -> -> -> 0 `i `ui `ux -> -> # *U &U _set_steering `ui `ux *U + &U _USART_Rx * -> -> -> 4 `i `ui `ux -> -> # *U &U _USART_Rx `ui `ux ]
+[; ;CanToSerial.c: 95: analogic_brake[0] = USART_Rx[5];
 "95
-[e $ ! && != -> *U + &U _set_speed_old * -> -> -> 0 `i `ui `ux -> -> # *U &U _set_speed_old `ui `ux `i -> *U + &U _set_speed * -> -> -> 0 `i `ui `ux -> -> # *U &U _set_speed `ui `ux `i != -> *U + &U _set_speed_old * -> -> -> 1 `i `ui `ux -> -> # *U &U _set_speed_old `ui `ux `i -> *U + &U _set_speed * -> -> -> 1 `i `ui `ux -> -> # *U &U _set_speed `ui `ux `i 2339  ]
-{
-[; ;CanToSerial.c: 96: CANsendMessage(0b00000000000000000000000000011, set_speed, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+[e = *U + &U _analogic_brake * -> -> -> 0 `i `ui `ux -> -> # *U &U _analogic_brake `ui `ux *U + &U _USART_Rx * -> -> -> 5 `i `ui `ux -> -> # *U &U _USART_Rx `ui `ux ]
 "96
-[e ( _CANsendMessage (4 , , , -> -> -> 3 `i `l `ul &U _set_speed -> -> 8 `i `uc -> & & -> . `E16706 11 `i -> . `E16728 10 `i -> . `E16728 1 `i `E16728 ]
+}
+[e :U 2334 ]
+[; ;CanToSerial.c: 96: }
+[; ;CanToSerial.c: 97: PIR1bits.RC1IF = 0;
 "97
-}
-[e :U 2339 ]
-[; ;CanToSerial.c: 97: }
-[; ;CanToSerial.c: 98: if (analogic_brake_old != analogic_brake[0]) {
+[e = . . _PIR1bits 1 1 -> -> 0 `i `uc ]
 "98
-[e $ ! != -> _analogic_brake_old `i -> *U + &U _analogic_brake * -> -> -> 0 `i `ui `ux -> -> # *U &U _analogic_brake `ui `ux `i 2340  ]
-{
-[; ;CanToSerial.c: 99: CANsendMessage(0b00000000000000000000000000100, analogic_brake, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
-"99
-[e ( _CANsendMessage (4 , , , -> -> -> 4 `i `l `ul &U _analogic_brake -> -> 8 `i `uc -> & & -> . `E16706 11 `i -> . `E16728 10 `i -> . `E16728 1 `i `E16728 ]
-"100
-}
-[e :U 2340 ]
-[; ;CanToSerial.c: 100: }
-[; ;CanToSerial.c: 101: newMessageUsart = 0;
-"101
-[e = _newMessageUsart -> -> 0 `i `b ]
-"102
-}
-[e :U 2337 ]
-"103
 }
 [e :U 2333 ]
-"85
-[e $U 2334  ]
-[e :U 2335 ]
-[; ;CanToSerial.c: 102: }
-[; ;CanToSerial.c: 103: }
-[; ;CanToSerial.c: 104: }
+[; ;CanToSerial.c: 98: }
+[; ;CanToSerial.c: 99: if (PIR2bits.TMR3IF) {
+"99
+[e $ ! != -> . . _PIR2bits 0 1 `i -> -> -> 0 `i `Vuc `i 2335  ]
+{
+[; ;CanToSerial.c: 100: timeCounter++;
+"100
+[e ++ _timeCounter -> -> -> 1 `i `l `ul ]
+[; ;CanToSerial.c: 101: TMR3H = 0x63;
+"101
+[e = _TMR3H -> -> 99 `i `uc ]
+[; ;CanToSerial.c: 102: TMR3L = 0xC0;
+"102
+[e = _TMR3L -> -> 192 `i `uc ]
+[; ;CanToSerial.c: 103: PIR2bits.TMR3IF = 0;
+"103
+[e = . . _PIR2bits 0 1 -> -> 0 `i `uc ]
 "104
-[e :UE 2332 ]
 }
-"106
-[v _can_interpreter `(v ~T0 @X0 1 ef ]
-{
-[; ;CanToSerial.c: 106: void can_interpreter(void) {
-[e :U _can_interpreter ]
-[f ]
-[; ;CanToSerial.c: 107: if (id == 0b00000000000000000000000000010) {
+[e :U 2335 ]
+[; ;CanToSerial.c: 104: }
+[; ;CanToSerial.c: 105: }
+"105
+[e :UE 2327 ]
+}
 "107
-[e $ ! == _id -> -> -> 2 `i `l `ul 2342  ]
+[v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;CanToSerial.c: 109: CANsendMessage(id, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+[; ;CanToSerial.c: 107: void main(void) {
+[e :U _main ]
+[f ]
+[; ;CanToSerial.c: 108: configurazione_iniziale();
+"108
+[e ( _configurazione_iniziale ..  ]
+[; ;CanToSerial.c: 109: while (1) {
 "109
-[e ( _CANsendMessage (4 , , , _id &U _data -> -> 8 `i `uc -> & & -> . `E16706 11 `i -> . `E16728 10 `i -> . `E16728 1 `i `E16728 ]
-"111
-}
-[; ;CanToSerial.c: 111: } else {
-[e $U 2343  ]
-[e :U 2342 ]
+[e :U 2338 ]
 {
+[; ;CanToSerial.c: 110: if (newMessageCan == 1) {
+"110
+[e $ ! == -> _newMessageCan `i -> 1 `i 2340  ]
+{
+[; ;CanToSerial.c: 111: can_interpreter();
+"111
+[e ( _can_interpreter ..  ]
+[; ;CanToSerial.c: 112: putsUSART((char *) SerialOutput);
+"112
+[e ( _putsUSART (1 &U _SerialOutput ]
+[; ;CanToSerial.c: 113: newMessageCan = 0;
 "113
+[e = _newMessageCan -> -> 0 `i `b ]
+"114
+}
+[e :U 2340 ]
+[; ;CanToSerial.c: 114: }
+[; ;CanToSerial.c: 115: if (newMessageUsart == 1) {
+"115
+[e $ ! == -> _newMessageUsart `i -> 1 `i 2341  ]
+{
+[; ;CanToSerial.c: 116: PORTDbits.RD2 = ~PORTDbits.RD2;
+"116
+[e = . . _PORTDbits 0 2 -> ~ -> . . _PORTDbits 0 2 `i `uc ]
+[; ;CanToSerial.c: 117: if (set_steering_old != set_steering[0]) {
+"117
+[e $ ! != -> _set_steering_old `i -> *U + &U _set_steering * -> -> -> 0 `i `ui `ux -> -> # *U &U _set_steering `ui `ux `i 2342  ]
+{
+[; ;CanToSerial.c: 118: CANsendMessage(0b00000000000000000000000000101, set_steering, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+"118
+[e ( _CANsendMessage (4 , , , -> -> -> 5 `i `l `ul &U _set_steering -> -> 8 `i `uc -> & & -> . `E16706 11 `i -> . `E16728 10 `i -> . `E16728 1 `i `E16728 ]
+"119
+}
+[e :U 2342 ]
+[; ;CanToSerial.c: 119: }
+[; ;CanToSerial.c: 120: if ((set_speed_old[0] != set_speed[0])&&(set_speed_old[1] != set_speed[1])) {
+"120
+[e $ ! && != -> *U + &U _set_speed_old * -> -> -> 0 `i `ui `ux -> -> # *U &U _set_speed_old `ui `ux `i -> *U + &U _set_speed * -> -> -> 0 `i `ui `ux -> -> # *U &U _set_speed `ui `ux `i != -> *U + &U _set_speed_old * -> -> -> 1 `i `ui `ux -> -> # *U &U _set_speed_old `ui `ux `i -> *U + &U _set_speed * -> -> -> 1 `i `ui `ux -> -> # *U &U _set_speed `ui `ux `i 2343  ]
+{
+[; ;CanToSerial.c: 121: CANsendMessage(0b00000000000000000000000000011, set_speed, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+"121
+[e ( _CANsendMessage (4 , , , -> -> -> 3 `i `l `ul &U _set_speed -> -> 8 `i `uc -> & & -> . `E16706 11 `i -> . `E16728 10 `i -> . `E16728 1 `i `E16728 ]
+"122
 }
 [e :U 2343 ]
-[; ;CanToSerial.c: 113: }
-[; ;CanToSerial.c: 114: }
-"114
-[e :UE 2341 ]
+[; ;CanToSerial.c: 122: }
+[; ;CanToSerial.c: 123: if (analogic_brake_old != analogic_brake[0]) {
+"123
+[e $ ! != -> _analogic_brake_old `i -> *U + &U _analogic_brake * -> -> -> 0 `i `ui `ux -> -> # *U &U _analogic_brake `ui `ux `i 2344  ]
+{
+[; ;CanToSerial.c: 124: analogic_brake[1] = 0x01;
+"124
+[e = *U + &U _analogic_brake * -> -> -> 1 `i `ui `ux -> -> # *U &U _analogic_brake `ui `ux -> -> 1 `i `uc ]
+[; ;CanToSerial.c: 125: CANsendMessage(0b00000000000000000000000000100, analogic_brake, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+"125
+[e ( _CANsendMessage (4 , , , -> -> -> 4 `i `l `ul &U _analogic_brake -> -> 8 `i `uc -> & & -> . `E16706 11 `i -> . `E16728 10 `i -> . `E16728 1 `i `E16728 ]
+"126
 }
-"116
+[e :U 2344 ]
+[; ;CanToSerial.c: 126: }
+[; ;CanToSerial.c: 127: newMessageUsart = 0;
+"127
+[e = _newMessageUsart -> -> 0 `i `b ]
+"128
+}
+[e :U 2341 ]
+"129
+}
+[e :U 2337 ]
+"109
+[e $U 2338  ]
+[e :U 2339 ]
+[; ;CanToSerial.c: 128: }
+[; ;CanToSerial.c: 129: }
+[; ;CanToSerial.c: 130: }
+"130
+[e :UE 2336 ]
+}
+"132
+[v _can_interpreter `(v ~T0 @X0 1 ef ]
+{
+[; ;CanToSerial.c: 132: void can_interpreter(void) {
+[e :U _can_interpreter ]
+[f ]
+[; ;CanToSerial.c: 133: if (id == 0b00000000000000000000000000010) {
+"133
+[e $ ! == _id -> -> -> 2 `i `l `ul 2346  ]
+{
+[; ;CanToSerial.c: 134: if (RTR_Flag == 1) {
+"134
+[e $ ! == -> _RTR_Flag `i -> 1 `i 2347  ]
+{
+[; ;CanToSerial.c: 135: previousTimeCounter = timeCounter;
+"135
+[e = _previousTimeCounter _timeCounter ]
+[; ;CanToSerial.c: 136: data[0] = 0x03;
+"136
+[e = *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux -> -> 3 `i `uc ]
+[; ;CanToSerial.c: 137: while (CANisTxReady() != 1);
+"137
+[e $U 2348  ]
+[e :U 2349 ]
+[e :U 2348 ]
+[e $ != -> ( _CANisTxReady ..  `i -> 1 `i 2349  ]
+[e :U 2350 ]
+[; ;CanToSerial.c: 138: CANsendMessage(id, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+"138
+[e ( _CANsendMessage (4 , , , _id &U _data -> -> 8 `i `uc -> & & -> . `E16706 11 `i -> . `E16728 10 `i -> . `E16728 1 `i `E16728 ]
+[; ;CanToSerial.c: 139: PORTDbits.RD4 = 1;
+"139
+[e = . . _PORTDbits 0 4 -> -> 1 `i `uc ]
+[; ;CanToSerial.c: 140: PORTDbits.RD5 = 0;
+"140
+[e = . . _PORTDbits 0 5 -> -> 0 `i `uc ]
+[; ;CanToSerial.c: 141: PORTDbits.RD6 = 0;
+"141
+[e = . . _PORTDbits 0 6 -> -> 0 `i `uc ]
+"142
+}
+[; ;CanToSerial.c: 142: } else {
+[e $U 2351  ]
+[e :U 2347 ]
+{
+[; ;CanToSerial.c: 143: if (data[0] == 0x01) {
+"143
+[e $ ! == -> *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux `i -> 1 `i 2352  ]
+{
+[; ;CanToSerial.c: 144: PORTDbits.RD5 = 1;
+"144
+[e = . . _PORTDbits 0 5 -> -> 1 `i `uc ]
+[; ;CanToSerial.c: 145: PORTCbits.RC5 = 0;
+"145
+[e = . . _PORTCbits 0 5 -> -> 0 `i `uc ]
+"146
+}
+[e :U 2352 ]
+[; ;CanToSerial.c: 146: }
+[; ;CanToSerial.c: 147: if (data[0] == 0x02) {
+"147
+[e $ ! == -> *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux `i -> 2 `i 2353  ]
+{
+[; ;CanToSerial.c: 148: PORTDbits.RD6 = 1;
+"148
+[e = . . _PORTDbits 0 6 -> -> 1 `i `uc ]
+[; ;CanToSerial.c: 149: PORTCbits.RC4 = 0;
+"149
+[e = . . _PORTCbits 0 4 -> -> 0 `i `uc ]
+"150
+}
+[e :U 2353 ]
+"151
+}
+[e :U 2351 ]
+[; ;CanToSerial.c: 150: }
+[; ;CanToSerial.c: 151: }
+[; ;CanToSerial.c: 152: if (previousTimeCounter - timeCounter > 450) {
+"152
+[e $ ! > - _previousTimeCounter _timeCounter -> -> -> 450 `i `l `ul 2354  ]
+{
+[; ;CanToSerial.c: 153: SerialOutput[4] = PORTDbits.RD6;
+"153
+[e = *U + &U _SerialOutput * -> -> -> 4 `i `ui `ux -> -> # *U &U _SerialOutput `ui `ux . . _PORTDbits 0 6 ]
+[; ;CanToSerial.c: 154: SerialOutput[4] = ((SerialOutput[5] < 1) | PORTDbits.RD5);
+"154
+[e = *U + &U _SerialOutput * -> -> -> 4 `i `ui `ux -> -> # *U &U _SerialOutput `ui `ux -> | -> < -> *U + &U _SerialOutput * -> -> -> 5 `i `ui `ux -> -> # *U &U _SerialOutput `ui `ux `i -> 1 `i `i -> . . _PORTDbits 0 5 `i `uc ]
+[; ;CanToSerial.c: 155: SerialOutput[4] = ((SerialOutput[5] < 1) | PORTDbits.RD4);
+"155
+[e = *U + &U _SerialOutput * -> -> -> 4 `i `ui `ux -> -> # *U &U _SerialOutput `ui `ux -> | -> < -> *U + &U _SerialOutput * -> -> -> 5 `i `ui `ux -> -> # *U &U _SerialOutput `ui `ux `i -> 1 `i `i -> . . _PORTDbits 0 4 `i `uc ]
+"156
+}
+[e :U 2354 ]
+"157
+}
+[e :U 2346 ]
+[; ;CanToSerial.c: 156: }
+[; ;CanToSerial.c: 157: }
+[; ;CanToSerial.c: 158: if ((id == 0b00000000000000000000000000110)&&(RTR_Flag == 0)) {
+"158
+[e $ ! && == _id -> -> -> 6 `i `l `ul == -> _RTR_Flag `i -> 0 `i 2355  ]
+{
+[; ;CanToSerial.c: 159: left_speed = data[1];
+"159
+[e = _left_speed -> *U + &U _data * -> -> -> 1 `i `ui `ux -> -> # *U &U _data `ui `ux `ui ]
+[; ;CanToSerial.c: 160: left_speed = ((left_speed << 8) | (data[0]));
+"160
+[e = _left_speed | << _left_speed -> 8 `i -> *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux `ui ]
+[; ;CanToSerial.c: 161: right_speed = data[3];
+"161
+[e = _right_speed -> *U + &U _data * -> -> -> 3 `i `ui `ux -> -> # *U &U _data `ui `ux `ui ]
+[; ;CanToSerial.c: 162: right_speed = ((right_speed << 8) | (data[2]));
+"162
+[e = _right_speed | << _right_speed -> 8 `i -> *U + &U _data * -> -> -> 2 `i `ui `ux -> -> # *U &U _data `ui `ux `ui ]
+[; ;CanToSerial.c: 163: SerialOutput[3] = ((left_speed + right_speed) / 2);
+"163
+[e = *U + &U _SerialOutput * -> -> -> 3 `i `ui `ux -> -> # *U &U _SerialOutput `ui `ux -> / + _left_speed _right_speed -> -> 2 `i `ui `uc ]
+[; ;CanToSerial.c: 164: SerialOutput[2] = (((left_speed + right_speed) / 2) >> 8);
+"164
+[e = *U + &U _SerialOutput * -> -> -> 2 `i `ui `ux -> -> # *U &U _SerialOutput `ui `ux -> >> / + _left_speed _right_speed -> -> 2 `i `ui -> 8 `i `uc ]
+"165
+}
+[e :U 2355 ]
+[; ;CanToSerial.c: 165: }
+[; ;CanToSerial.c: 166: if (id == 0b00000000000000000000000001001) {
+"166
+[e $ ! == _id -> -> -> 9 `i `l `ul 2356  ]
+{
+[; ;CanToSerial.c: 167: SerialOutput[5] = data[0];
+"167
+[e = *U + &U _SerialOutput * -> -> -> 5 `i `ui `ux -> -> # *U &U _SerialOutput `ui `ux *U + &U _data * -> -> -> 0 `i `ui `ux -> -> # *U &U _data `ui `ux ]
+"168
+}
+[e :U 2356 ]
+[; ;CanToSerial.c: 168: }
+[; ;CanToSerial.c: 169: }
+"169
+[e :UE 2345 ]
+}
+"171
 [v _configurazione_iniziale `(v ~T0 @X0 1 ef ]
 {
-[; ;CanToSerial.c: 116: void configurazione_iniziale(void) {
+[; ;CanToSerial.c: 171: void configurazione_iniziale(void) {
 [e :U _configurazione_iniziale ]
 [f ]
-[; ;CanToSerial.c: 117: RCSTA&=0b01001111,TXSTAbits.TXEN=0,PIE1&=0b11001111;
-"117
+[; ;CanToSerial.c: 172: RCSTA&=0b01001111,TXSTAbits.TXEN=0,PIE1&=0b11001111;
+"172
 [e ; ; =& _RCSTA -> -> 79 `i `uc = . . _TXSTAbits 0 5 -> -> 0 `i `uc =& _PIE1 -> -> 207 `i `uc ]
-[; ;CanToSerial.c: 119: RCONbits.IPEN = 1;
-"119
+[; ;CanToSerial.c: 174: RCONbits.IPEN = 1;
+"174
 [e = . . _RCONbits 5 7 -> -> 1 `i `uc ]
-[; ;CanToSerial.c: 120: PIR3bits.RXB1IF = 0;
-"120
+[; ;CanToSerial.c: 175: PIR3bits.RXB1IF = 0;
+"175
 [e = . . _PIR3bits 0 1 -> -> 0 `i `uc ]
-[; ;CanToSerial.c: 121: PIR3bits.RXB0IF = 0;
-"121
+[; ;CanToSerial.c: 176: PIR3bits.RXB0IF = 0;
+"176
 [e = . . _PIR3bits 0 0 -> -> 0 `i `uc ]
-[; ;CanToSerial.c: 122: PIR1bits.RC1IF = 0;
-"122
+[; ;CanToSerial.c: 177: PIR1bits.RC1IF = 0;
+"177
 [e = . . _PIR1bits 1 1 -> -> 0 `i `uc ]
-[; ;CanToSerial.c: 124: IPR3bits.RXB1IP = 0;
-"124
+[; ;CanToSerial.c: 179: IPR3bits.RXB1IP = 0;
+"179
 [e = . . _IPR3bits 0 1 -> -> 0 `i `uc ]
-[; ;CanToSerial.c: 125: IPR3bits.RXB0IP = 0;
-"125
+[; ;CanToSerial.c: 180: IPR3bits.RXB0IP = 0;
+"180
 [e = . . _IPR3bits 0 0 -> -> 0 `i `uc ]
-[; ;CanToSerial.c: 126: IPR1bits.RC1IP = 0;
-"126
+[; ;CanToSerial.c: 181: IPR1bits.RC1IP = 0;
+"181
 [e = . . _IPR1bits 2 1 -> -> 0 `i `uc ]
-[; ;CanToSerial.c: 128: PIE3bits.RXB1IE = 1;
-"128
+[; ;CanToSerial.c: 183: PIE3bits.RXB1IE = 1;
+"183
 [e = . . _PIE3bits 0 1 -> -> 1 `i `uc ]
-[; ;CanToSerial.c: 129: PIE3bits.RXB0IE = 1;
-"129
+[; ;CanToSerial.c: 184: PIE3bits.RXB0IE = 1;
+"184
 [e = . . _PIE3bits 0 0 -> -> 1 `i `uc ]
-[; ;CanToSerial.c: 130: PIE1bits.RC1IE = 1;
-"130
+[; ;CanToSerial.c: 185: PIE1bits.RC1IE = 1;
+"185
 [e = . . _PIE1bits 1 1 -> -> 1 `i `uc ]
-[; ;CanToSerial.c: 132: INTCONbits.GIEH = 1;
-"132
+[; ;CanToSerial.c: 187: INTCONbits.GIEH = 1;
+"187
 [e = . . _INTCONbits 2 2 -> -> 1 `i `uc ]
-[; ;CanToSerial.c: 133: INTCONbits.GIEL = 1;
-"133
+[; ;CanToSerial.c: 188: INTCONbits.GIEL = 1;
+"188
 [e = . . _INTCONbits 2 1 -> -> 1 `i `uc ]
-[; ;CanToSerial.c: 137: CANInitialize(4, 6, 5, 1, 3, CAN_CONFIG_LINE_FILTER_OFF & CAN_CONFIG_SAMPLE_ONCE &
-[; ;CanToSerial.c: 138: CAN_CONFIG_ALL_VALID_MSG & CAN_CONFIG_DBL_BUFFER_ON);
-"138
+[; ;CanToSerial.c: 192: CANInitialize(4, 6, 5, 1, 3, CAN_CONFIG_LINE_FILTER_OFF & CAN_CONFIG_SAMPLE_ONCE &
+[; ;CanToSerial.c: 193: CAN_CONFIG_ALL_VALID_MSG & CAN_CONFIG_DBL_BUFFER_ON);
+"193
 [e ( _CANInitialize (4 , , , , , -> -> 4 `i `uc -> -> 6 `i `uc -> -> 5 `i `uc -> -> 1 `i `uc -> -> 3 `i `uc -> & & & -> . `E16706 6 `i -> . `E16706 8 `i -> . `E16706 20 `i -> . `E16706 14 `i `E16706 ]
-[; ;CanToSerial.c: 140: OpenUSART(0b01111111 & 0b11111111 & 0b11111110 & 0b11111101
-[; ;CanToSerial.c: 141: & 0b11111111 & 0b11111111, 103);
-"141
+[; ;CanToSerial.c: 195: OpenUSART(0b01111111 & 0b11111111 & 0b11111110 & 0b11111101
+[; ;CanToSerial.c: 196: & 0b11111111 & 0b11111111, 103);
+"196
 [e ( _OpenUSART (2 , -> & & & & & -> 127 `i -> 255 `i -> 254 `i -> 253 `i -> 255 `i -> 255 `i `uc -> -> 103 `i `ui ]
-[; ;CanToSerial.c: 145: LATA = 0x00;
-"145
+[; ;CanToSerial.c: 200: LATA = 0x00;
+"200
 [e = _LATA -> -> 0 `i `uc ]
-[; ;CanToSerial.c: 146: TRISA = 0b01111101;
-"146
+[; ;CanToSerial.c: 201: TRISA = 0b01111101;
+"201
 [e = _TRISA -> -> 125 `i `uc ]
-[; ;CanToSerial.c: 148: LATB = 0x00;
-"148
+[; ;CanToSerial.c: 203: LATB = 0x00;
+"203
 [e = _LATB -> -> 0 `i `uc ]
-[; ;CanToSerial.c: 149: TRISB = 0b11111011;
-"149
+[; ;CanToSerial.c: 204: TRISB = 0b11111011;
+"204
 [e = _TRISB -> -> 251 `i `uc ]
-[; ;CanToSerial.c: 151: LATC = 0x00;
-"151
+[; ;CanToSerial.c: 206: LATC = 0x00;
+"206
 [e = _LATC -> -> 0 `i `uc ]
-[; ;CanToSerial.c: 152: TRISC = 0b10111111;
-"152
+[; ;CanToSerial.c: 207: TRISC = 0b10111111;
+"207
 [e = _TRISC -> -> 191 `i `uc ]
-[; ;CanToSerial.c: 154: }
-"154
-[e :UE 2344 ]
+[; ;CanToSerial.c: 210: T3CON = 0x01;
+"210
+[e = _T3CON -> -> 1 `i `uc ]
+[; ;CanToSerial.c: 211: PIR2bits.TMR3IF = 0;
+"211
+[e = . . _PIR2bits 0 1 -> -> 0 `i `uc ]
+[; ;CanToSerial.c: 212: IPR2bits.TMR3IP = 0;
+"212
+[e = . . _IPR2bits 0 1 -> -> 0 `i `uc ]
+[; ;CanToSerial.c: 213: TMR3H = 0x63;
+"213
+[e = _TMR3H -> -> 99 `i `uc ]
+[; ;CanToSerial.c: 214: TMR3L = 0xC0;
+"214
+[e = _TMR3L -> -> 192 `i `uc ]
+[; ;CanToSerial.c: 216: }
+"216
+[e :UE 2357 ]
 }
