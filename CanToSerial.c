@@ -163,7 +163,7 @@ void main(void) {
             for (char i = 0; i < 6; i++) {
                 if (SerialOutput[i] == 0) {
                     SerialOutput[i] = 1; //debug
-                    SerialOutputOld[i] = SerialOutput[i];
+                    
                 }
             }
 
@@ -176,9 +176,13 @@ void main(void) {
             if ((BusyUSART() != 1)&&(spam_counter != 5)) {
                 SerialTx = ~SerialTx;
                 putsUSART(SerialOutput);
+                for (char i = 0; i<6; i++){
+                SerialOutputOld[i] = SerialOutput[i];
+                }
             }
             newMessageCan = 0;
         }
+        
         if (newMessageUsart == 1) {
             CanTx = ~CanTx; //toggle led invio can bus
             if (set_steering_old != set_steering[0]) {
