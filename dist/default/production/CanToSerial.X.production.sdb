@@ -74,6 +74,7 @@ CAN_RX_BUFFER_2_OVFL 2
 [v _CANInitialize CANInitialize `(v  1 e 0 0 ]
 "295
 [v _CANsendMessage CANsendMessage `(v  1 e 0 0 ]
+[v i2_CANsendMessage CANsendMessage `(v  1 e 0 0 ]
 "529
 [v _CANreceiveMessage CANreceiveMessage `(uc  1 e 1 0 ]
 "641
@@ -118,15 +119,15 @@ CAN_RX_BUFFER_2_OVFL 2
 [v _ReadUSART ReadUSART `(uc  1 e 1 0 ]
 "13 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\pic18\plib\USART\uwrite.c
 [v _WriteUSART WriteUSART `(v  1 e 0 0 ]
-"68 D:\Documenti\GitHub\CanToSerial.X\CanToSerial.c
+"69 D:\Documenti\GitHub\CanToSerial.X\CanToSerial.c
 [v _ISR_alta ISR_alta `IIH(v  1 e 0 0 ]
-"90
+"100
 [v _ISR_bassa ISR_bassa `IIL(v  1 e 0 0 ]
-"128
+"140
 [v _main main `(v  1 e 0 0 ]
-"185
+"200
 [v _can_interpreter can_interpreter `(v  1 e 0 0 ]
-"227
+"244
 [v _configurazione_iniziale configurazione_iniziale `(v  1 e 0 0 ]
 "49 D:\Documenti/LaurTec_PIC_libraries_v_3.3.0/src\delay.c
 [v _delay_quartz_frequency_value delay_quartz_frequency_value `VEuc  1 e 1 0 ]
@@ -1027,7 +1028,7 @@ CAN_RX_BUFFER_2_OVFL 2
 [v _RXERRCNT RXERRCNT `VEuc  1 e 1 @3957 ]
 "27872
 [v _TXERRCNT TXERRCNT `VEuc  1 e 1 @3958 ]
-[s S2250 . 1 `uc 1 RC0 1 0 :1:0 
+[s S2262 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -1037,7 +1038,7 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 RC7 1 0 :1:7 
 ]
 "28434
-[s S2259 . 1 `uc 1 T1OSO 1 0 :1:0 
+[s S2271 . 1 `uc 1 T1OSO 1 0 :1:0 
 `uc 1 T1OSI 1 0 :1:1 
 `uc 1 CCP1 1 0 :1:2 
 `uc 1 SCK 1 0 :1:3 
@@ -1046,7 +1047,7 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 TX 1 0 :1:6 
 `uc 1 RX 1 0 :1:7 
 ]
-[s S2268 . 1 `uc 1 T13CKI 1 0 :1:0 
+[s S2280 . 1 `uc 1 T13CKI 1 0 :1:0 
 `uc 1 . 1 0 :2:1 
 `uc 1 SCL 1 0 :1:3 
 `uc 1 SDA 1 0 :1:4 
@@ -1054,61 +1055,26 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 CK 1 0 :1:6 
 `uc 1 DT 1 0 :1:7 
 ]
-[s S2276 . 1 `uc 1 . 1 0 :1:0 
+[s S2288 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 CCP2 1 0 :1:1 
 ]
-[s S2279 . 1 `uc 1 . 1 0 :2:0 
+[s S2291 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PA1 1 0 :1:2 
 ]
-[s S2282 . 1 `uc 1 . 1 0 :1:0 
+[s S2294 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 PA2 1 0 :1:1 
 ]
-[u S2285 . 1 `S2250 1 . 1 0 `S2259 1 . 1 0 `S2268 1 . 1 0 `S2276 1 . 1 0 `S2279 1 . 1 0 `S2282 1 . 1 0 ]
-[v _PORTCbits PORTCbits `VES2285  1 e 1 @3970 ]
+[u S2297 . 1 `S2262 1 . 1 0 `S2271 1 . 1 0 `S2280 1 . 1 0 `S2288 1 . 1 0 `S2291 1 . 1 0 `S2294 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES2297  1 e 1 @3970 ]
 "28961
 [v _LATA LATA `VEuc  1 e 1 @3977 ]
-[s S2175 . 1 `uc 1 LATA0 1 0 :1:0 
-`uc 1 LATA1 1 0 :1:1 
-`uc 1 LATA2 1 0 :1:2 
-`uc 1 LATA3 1 0 :1:3 
-`uc 1 LATA4 1 0 :1:4 
-`uc 1 LATA5 1 0 :1:5 
-`uc 1 LATA6 1 0 :1:6 
-`uc 1 LATA7 1 0 :1:7 
-]
-"29009
-[s S2184 . 1 `uc 1 LA0 1 0 :1:0 
-]
-[s S2186 . 1 `uc 1 . 1 0 :1:0 
-`uc 1 LA1 1 0 :1:1 
-]
-[s S2189 . 1 `uc 1 . 1 0 :2:0 
-`uc 1 LA2 1 0 :1:2 
-]
-[s S2192 . 1 `uc 1 . 1 0 :3:0 
-`uc 1 LA3 1 0 :1:3 
-]
-[s S2195 . 1 `uc 1 . 1 0 :4:0 
-`uc 1 LA4 1 0 :1:4 
-]
-[s S2198 . 1 `uc 1 . 1 0 :5:0 
-`uc 1 LA5 1 0 :1:5 
-]
-[s S2201 . 1 `uc 1 . 1 0 :6:0 
-`uc 1 LA6 1 0 :1:6 
-]
-[s S2204 . 1 `uc 1 . 1 0 :7:0 
-`uc 1 LA7 1 0 :1:7 
-]
-[u S2207 . 1 `S2175 1 . 1 0 `S2184 1 . 1 0 `S2186 1 . 1 0 `S2189 1 . 1 0 `S2192 1 . 1 0 `S2195 1 . 1 0 `S2198 1 . 1 0 `S2201 1 . 1 0 `S2204 1 . 1 0 ]
-[v _LATAbits LATAbits `VES2207  1 e 1 @3977 ]
 "29093
 [v _LATB LATB `VEuc  1 e 1 @3978 ]
 "29225
 [v _LATC LATC `VEuc  1 e 1 @3979 ]
 "29357
 [v _LATD LATD `VEuc  1 e 1 @3980 ]
-[s S2011 . 1 `uc 1 LATD0 1 0 :1:0 
+[s S2016 . 1 `uc 1 LATD0 1 0 :1:0 
 `uc 1 LATD1 1 0 :1:1 
 `uc 1 LATD2 1 0 :1:2 
 `uc 1 LATD3 1 0 :1:3 
@@ -1118,31 +1084,31 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 LATD7 1 0 :1:7 
 ]
 "29405
-[s S2020 . 1 `uc 1 LD0 1 0 :1:0 
+[s S2025 . 1 `uc 1 LD0 1 0 :1:0 
 ]
-[s S2022 . 1 `uc 1 . 1 0 :1:0 
+[s S2027 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 LD1 1 0 :1:1 
 ]
-[s S2025 . 1 `uc 1 . 1 0 :2:0 
+[s S2030 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LD2 1 0 :1:2 
 ]
-[s S2028 . 1 `uc 1 . 1 0 :3:0 
+[s S2033 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 LD3 1 0 :1:3 
 ]
-[s S2031 . 1 `uc 1 . 1 0 :4:0 
+[s S2036 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 LD4 1 0 :1:4 
 ]
-[s S2034 . 1 `uc 1 . 1 0 :5:0 
+[s S2039 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 LD5 1 0 :1:5 
 ]
-[s S2037 . 1 `uc 1 . 1 0 :6:0 
+[s S2042 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 LD6 1 0 :1:6 
 ]
-[s S2040 . 1 `uc 1 . 1 0 :7:0 
+[s S2045 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 LD7 1 0 :1:7 
 ]
-[u S2043 . 1 `S2011 1 . 1 0 `S2020 1 . 1 0 `S2022 1 . 1 0 `S2025 1 . 1 0 `S2028 1 . 1 0 `S2031 1 . 1 0 `S2034 1 . 1 0 `S2037 1 . 1 0 `S2040 1 . 1 0 ]
-[v _LATDbits LATDbits `VES2043  1 e 1 @3980 ]
+[u S2048 . 1 `S2016 1 . 1 0 `S2025 1 . 1 0 `S2027 1 . 1 0 `S2030 1 . 1 0 `S2033 1 . 1 0 `S2036 1 . 1 0 `S2039 1 . 1 0 `S2042 1 . 1 0 `S2045 1 . 1 0 ]
+[v _LATDbits LATDbits `VES2048  1 e 1 @3980 ]
 "29489
 [v _LATE LATE `VEuc  1 e 1 @3981 ]
 "29591
@@ -1151,7 +1117,7 @@ CAN_RX_BUFFER_2_OVFL 2
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
 "30033
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
-[s S3511 . 1 `uc 1 TRISC0 1 0 :1:0 
+[s S3430 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -1161,15 +1127,15 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "30065
-[u S3529 . 1 `S3511 1 . 1 0 `S2250 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES3529  1 e 1 @3988 ]
+[u S3448 . 1 `S3430 1 . 1 0 `S2262 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES3448  1 e 1 @3988 ]
 "30254
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
 "30475
 [v _TRISE TRISE `VEuc  1 e 1 @3990 ]
 "30697
 [v _PIE1 PIE1 `VEuc  1 e 1 @3997 ]
-[s S2683 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[s S2608 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -1179,15 +1145,15 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 PSPIE 1 0 :1:7 
 ]
 "30722
-[s S2692 . 1 `uc 1 . 1 0 :5:0 
+[s S2617 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 RC1IE 1 0 :1:5 
 ]
-[s S2695 . 1 `uc 1 . 1 0 :4:0 
+[s S2620 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IE 1 0 :1:4 
 ]
-[u S2698 . 1 `S2683 1 . 1 0 `S2692 1 . 1 0 `S2695 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES2698  1 e 1 @3997 ]
-[s S1970 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S2623 . 1 `S2608 1 . 1 0 `S2617 1 . 1 0 `S2620 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES2623  1 e 1 @3997 ]
+[s S2091 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -1197,15 +1163,15 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 PSPIF 1 0 :1:7 
 ]
 "30801
-[s S1979 . 1 `uc 1 . 1 0 :5:0 
+[s S2100 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 RC1IF 1 0 :1:5 
 ]
-[s S1982 . 1 `uc 1 . 1 0 :4:0 
+[s S2103 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IF 1 0 :1:4 
 ]
-[u S1985 . 1 `S1970 1 . 1 0 `S1979 1 . 1 0 `S1982 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES1985  1 e 1 @3998 ]
-[s S2590 . 1 `uc 1 TMR1IP 1 0 :1:0 
+[u S2106 . 1 `S2091 1 . 1 0 `S2100 1 . 1 0 `S2103 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES2106  1 e 1 @3998 ]
+[s S2515 . 1 `uc 1 TMR1IP 1 0 :1:0 
 `uc 1 TMR2IP 1 0 :1:1 
 `uc 1 CCP1IP 1 0 :1:2 
 `uc 1 SSPIP 1 0 :1:3 
@@ -1215,18 +1181,18 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 PSPIP 1 0 :1:7 
 ]
 "30884
-[s S2599 . 1 `uc 1 . 1 0 :4:0 
+[s S2524 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TXBIP 1 0 :1:4 
 ]
-[s S2602 . 1 `uc 1 . 1 0 :5:0 
+[s S2527 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 RC1IP 1 0 :1:5 
 ]
-[s S2605 . 1 `uc 1 . 1 0 :4:0 
+[s S2530 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IP 1 0 :1:4 
 ]
-[u S2608 . 1 `S2590 1 . 1 0 `S2599 1 . 1 0 `S2602 1 . 1 0 `S2605 1 . 1 0 ]
-[v _IPR1bits IPR1bits `VES2608  1 e 1 @3999 ]
-[s S2802 . 1 `uc 1 ECCP1IE 1 0 :1:0 
+[u S2533 . 1 `S2515 1 . 1 0 `S2524 1 . 1 0 `S2527 1 . 1 0 `S2530 1 . 1 0 ]
+[v _IPR1bits IPR1bits `VES2533  1 e 1 @3999 ]
+[s S2727 . 1 `uc 1 ECCP1IE 1 0 :1:0 
 `uc 1 TMR3IE 1 0 :1:1 
 `uc 1 HLVDIE 1 0 :1:2 
 `uc 1 BCLIE 1 0 :1:3 
@@ -1236,11 +1202,11 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 OSCFIE 1 0 :1:7 
 ]
 "30964
-[s S2811 . 1 `uc 1 . 1 0 :2:0 
+[s S2736 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LVDIE 1 0 :1:2 
 ]
-[u S2814 . 1 `S2802 1 . 1 0 `S2811 1 . 1 0 ]
-[v _PIE2bits PIE2bits `VES2814  1 e 1 @4000 ]
+[u S2739 . 1 `S2727 1 . 1 0 `S2736 1 . 1 0 ]
+[v _PIE2bits PIE2bits `VES2739  1 e 1 @4000 ]
 [s S2132 . 1 `uc 1 ECCP1IF 1 0 :1:0 
 `uc 1 TMR3IF 1 0 :1:1 
 `uc 1 HLVDIF 1 0 :1:2 
@@ -1256,7 +1222,7 @@ CAN_RX_BUFFER_2_OVFL 2
 ]
 [u S2144 . 1 `S2132 1 . 1 0 `S2141 1 . 1 0 ]
 [v _PIR2bits PIR2bits `VES2144  1 e 1 @4001 ]
-[s S2774 . 1 `uc 1 ECCP1IP 1 0 :1:0 
+[s S2699 . 1 `uc 1 ECCP1IP 1 0 :1:0 
 `uc 1 TMR3IP 1 0 :1:1 
 `uc 1 HLVDIP 1 0 :1:2 
 `uc 1 BCLIP 1 0 :1:3 
@@ -1266,12 +1232,12 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 OSCFIP 1 0 :1:7 
 ]
 "31094
-[s S2783 . 1 `uc 1 . 1 0 :2:0 
+[s S2708 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LVDIP 1 0 :1:2 
 ]
-[u S2786 . 1 `S2774 1 . 1 0 `S2783 1 . 1 0 ]
-[v _IPR2bits IPR2bits `VES2786  1 e 1 @4002 ]
-[s S2632 . 1 `uc 1 RXB0IE 1 0 :1:0 
+[u S2711 . 1 `S2699 1 . 1 0 `S2708 1 . 1 0 ]
+[v _IPR2bits IPR2bits `VES2711  1 e 1 @4002 ]
+[s S2557 . 1 `uc 1 RXB0IE 1 0 :1:0 
 `uc 1 RXB1IE 1 0 :1:1 
 `uc 1 TXB0IE 1 0 :1:2 
 `uc 1 TXB1IE 1 0 :1:3 
@@ -1281,22 +1247,22 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 IRXIE 1 0 :1:7 
 ]
 "31172
-[s S2641 . 1 `uc 1 FIFOWMIE 1 0 :1:0 
+[s S2566 . 1 `uc 1 FIFOWMIE 1 0 :1:0 
 `uc 1 RXBnIE 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 TXBnIE 1 0 :1:4 
 ]
-[s S2646 . 1 `uc 1 FIFOMWIE 1 0 :1:0 
+[s S2571 . 1 `uc 1 FIFOMWIE 1 0 :1:0 
 ]
-[s S2648 . 1 `uc 1 . 1 0 :1:0 
+[s S2573 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RXBNIE 1 0 :1:1 
 ]
-[s S2651 . 1 `uc 1 . 1 0 :4:0 
+[s S2576 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TXBNIE 1 0 :1:4 
 ]
-[u S2654 . 1 `S2632 1 . 1 0 `S2641 1 . 1 0 `S2646 1 . 1 0 `S2648 1 . 1 0 `S2651 1 . 1 0 ]
-[v _PIE3bits PIE3bits `VES2654  1 e 1 @4003 ]
-[s S2086 . 1 `uc 1 RXB0IF 1 0 :1:0 
+[u S2579 . 1 `S2557 1 . 1 0 `S2566 1 . 1 0 `S2571 1 . 1 0 `S2573 1 . 1 0 `S2576 1 . 1 0 ]
+[v _PIE3bits PIE3bits `VES2579  1 e 1 @4003 ]
+[s S1970 . 1 `uc 1 RXB0IF 1 0 :1:0 
 `uc 1 RXB1IF 1 0 :1:1 
 `uc 1 TXB0IF 1 0 :1:2 
 `uc 1 TXB1IF 1 0 :1:3 
@@ -1306,20 +1272,20 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 IRXIF 1 0 :1:7 
 ]
 "31277
-[s S2095 . 1 `uc 1 FIFOWMIF 1 0 :1:0 
+[s S1979 . 1 `uc 1 FIFOWMIF 1 0 :1:0 
 `uc 1 RXBnIF 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 TXBnIF 1 0 :1:4 
 ]
-[s S2100 . 1 `uc 1 . 1 0 :1:0 
+[s S1984 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RXBNIF 1 0 :1:1 
 ]
-[s S2103 . 1 `uc 1 . 1 0 :4:0 
+[s S1987 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TXBNIF 1 0 :1:4 
 ]
-[u S2106 . 1 `S2086 1 . 1 0 `S2095 1 . 1 0 `S2100 1 . 1 0 `S2103 1 . 1 0 ]
-[v _PIR3bits PIR3bits `VES2106  1 e 1 @4004 ]
-[s S2544 . 1 `uc 1 RXB0IP 1 0 :1:0 
+[u S1990 . 1 `S1970 1 . 1 0 `S1979 1 . 1 0 `S1984 1 . 1 0 `S1987 1 . 1 0 ]
+[v _PIR3bits PIR3bits `VES1990  1 e 1 @4004 ]
+[s S2469 . 1 `uc 1 RXB0IP 1 0 :1:0 
 `uc 1 RXB1IP 1 0 :1:1 
 `uc 1 TXB0IP 1 0 :1:2 
 `uc 1 TXB1IP 1 0 :1:3 
@@ -1329,22 +1295,22 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 IRXIP 1 0 :1:7 
 ]
 "31377
-[s S2553 . 1 `uc 1 FIFOWMIP 1 0 :1:0 
+[s S2478 . 1 `uc 1 FIFOWMIP 1 0 :1:0 
 `uc 1 RXBnIP 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 TXBnIP 1 0 :1:4 
 ]
-[s S2558 . 1 `uc 1 . 1 0 :1:0 
+[s S2483 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RXBNIP 1 0 :1:1 
 ]
-[s S2561 . 1 `uc 1 . 1 0 :4:0 
+[s S2486 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TXBNIP 1 0 :1:4 
 ]
-[u S2564 . 1 `S2544 1 . 1 0 `S2553 1 . 1 0 `S2558 1 . 1 0 `S2561 1 . 1 0 ]
-[v _IPR3bits IPR3bits `VES2564  1 e 1 @4005 ]
+[u S2489 . 1 `S2469 1 . 1 0 `S2478 1 . 1 0 `S2483 1 . 1 0 `S2486 1 . 1 0 ]
+[v _IPR3bits IPR3bits `VES2489  1 e 1 @4005 ]
 "31529
 [v _RCSTA RCSTA `VEuc  1 e 1 @4011 ]
-[s S2423 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S2348 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -1354,25 +1320,25 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 SPEN 1 0 :1:7 
 ]
 "31570
-[s S2432 . 1 `uc 1 . 1 0 :3:0 
+[s S2357 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 ADEN 1 0 :1:3 
 ]
-[s S2435 . 1 `uc 1 . 1 0 :5:0 
+[s S2360 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRENA 1 0 :1:5 
 ]
-[s S2438 . 1 `uc 1 . 1 0 :6:0 
+[s S2363 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[s S2441 . 1 `uc 1 . 1 0 :6:0 
+[s S2366 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S2444 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S2369 . 1 `uc 1 RCD8 1 0 :1:0 
 ]
-[u S2446 . 1 `S2423 1 . 1 0 `S2432 1 . 1 0 `S2435 1 . 1 0 `S2438 1 . 1 0 `S2441 1 . 1 0 `S2444 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES2446  1 e 1 @4011 ]
+[u S2371 . 1 `S2348 1 . 1 0 `S2357 1 . 1 0 `S2360 1 . 1 0 `S2363 1 . 1 0 `S2366 1 . 1 0 `S2369 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES2371  1 e 1 @4011 ]
 "31738
 [v _TXSTA TXSTA `VEuc  1 e 1 @4012 ]
-[s S2329 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S2170 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -1382,36 +1348,36 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 CSRC 1 0 :1:7 
 ]
 "31798
-[s S2338 . 1 `uc 1 . 1 0 :2:0 
+[s S2179 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 BRGH1 1 0 :1:2 
 ]
-[s S2341 . 1 `uc 1 . 1 0 :7:0 
+[s S2182 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 CSRC1 1 0 :1:7 
 ]
-[s S2344 . 1 `uc 1 . 1 0 :3:0 
+[s S2185 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SENDB1 1 0 :1:3 
 ]
-[s S2347 . 1 `uc 1 . 1 0 :4:0 
+[s S2188 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 SYNC1 1 0 :1:4 
 ]
-[s S2350 . 1 `uc 1 . 1 0 :1:0 
+[s S2191 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 TRMT1 1 0 :1:1 
 ]
-[s S2353 . 1 `uc 1 . 1 0 :6:0 
+[s S2194 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX91 1 0 :1:6 
 ]
-[s S2356 . 1 `uc 1 TX9D1 1 0 :1:0 
+[s S2197 . 1 `uc 1 TX9D1 1 0 :1:0 
 ]
-[s S2358 . 1 `uc 1 . 1 0 :5:0 
+[s S2199 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 TXEN1 1 0 :1:5 
 ]
-[s S2361 . 1 `uc 1 . 1 0 :6:0 
+[s S2202 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[s S2364 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S2205 . 1 `uc 1 TXD8 1 0 :1:0 
 ]
-[u S2366 . 1 `S2329 1 . 1 0 `S2338 1 . 1 0 `S2341 1 . 1 0 `S2344 1 . 1 0 `S2347 1 . 1 0 `S2350 1 . 1 0 `S2353 1 . 1 0 `S2356 1 . 1 0 `S2358 1 . 1 0 `S2361 1 . 1 0 `S2364 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES2366  1 e 1 @4012 ]
+[u S2207 . 1 `S2170 1 . 1 0 `S2179 1 . 1 0 `S2182 1 . 1 0 `S2185 1 . 1 0 `S2188 1 . 1 0 `S2191 1 . 1 0 `S2194 1 . 1 0 `S2197 1 . 1 0 `S2199 1 . 1 0 `S2202 1 . 1 0 `S2205 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES2207  1 e 1 @4012 ]
 "32035
 [v _TXREG TXREG `VEuc  1 e 1 @4013 ]
 "32046
@@ -1426,11 +1392,11 @@ CAN_RX_BUFFER_2_OVFL 2
 [v _TMR3L TMR3L `VEuc  1 e 1 @4018 ]
 "32214
 [v _TMR3H TMR3H `VEuc  1 e 1 @4019 ]
-[s S2728 . 1 `uc 1 PCFG 1 0 :4:0 
+[s S2653 . 1 `uc 1 PCFG 1 0 :4:0 
 `uc 1 VCFG 1 0 :2:4 
 ]
 "32995
-[s S2731 . 1 `uc 1 PCFG0 1 0 :1:0 
+[s S2656 . 1 `uc 1 PCFG0 1 0 :1:0 
 `uc 1 PCFG1 1 0 :1:1 
 `uc 1 PCFG2 1 0 :1:2 
 `uc 1 PCFG3 1 0 :1:3 
@@ -1438,42 +1404,42 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 VCFG1 1 0 :1:5 
 ]
 "32995
-[s S2738 . 1 `uc 1 . 1 0 :3:0 
+[s S2663 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CHSN3 1 0 :1:3 
 ]
 "32995
-[s S2741 . 1 `uc 1 . 1 0 :4:0 
+[s S2666 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 VCFG01 1 0 :1:4 
 ]
 "32995
-[s S2744 . 1 `uc 1 . 1 0 :5:0 
+[s S2669 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 VCFG11 1 0 :1:5 
 ]
 "32995
-[u S2747 . 1 `S2728 1 . 1 0 `S2731 1 . 1 0 `S2738 1 . 1 0 `S2741 1 . 1 0 `S2744 1 . 1 0 ]
+[u S2672 . 1 `S2653 1 . 1 0 `S2656 1 . 1 0 `S2663 1 . 1 0 `S2666 1 . 1 0 `S2669 1 . 1 0 ]
 "32995
 "32995
-[v _ADCON1bits ADCON1bits `VES2747  1 e 1 @4033 ]
-[s S2477 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+[v _ADCON1bits ADCON1bits `VES2672  1 e 1 @4033 ]
+[s S2402 . 1 `uc 1 NOT_BOR 1 0 :1:0 
 ]
 "33961
-[s S2479 . 1 `uc 1 . 1 0 :1:0 
+[s S2404 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_POR 1 0 :1:1 
 ]
 "33961
-[s S2482 . 1 `uc 1 . 1 0 :2:0 
+[s S2407 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_PD 1 0 :1:2 
 ]
 "33961
-[s S2485 . 1 `uc 1 . 1 0 :3:0 
+[s S2410 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 NOT_TO 1 0 :1:3 
 ]
 "33961
-[s S2488 . 1 `uc 1 . 1 0 :4:0 
+[s S2413 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 NOT_RI 1 0 :1:4 
 ]
 "33961
-[s S2491 . 1 `uc 1 nBOR 1 0 :1:0 
+[s S2416 . 1 `uc 1 nBOR 1 0 :1:0 
 `uc 1 nPOR 1 0 :1:1 
 `uc 1 nPD 1 0 :1:2 
 `uc 1 nTO 1 0 :1:3 
@@ -1483,18 +1449,18 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 IPEN 1 0 :1:7 
 ]
 "33961
-[s S2500 . 1 `uc 1 BOR 1 0 :1:0 
+[s S2425 . 1 `uc 1 BOR 1 0 :1:0 
 `uc 1 POR 1 0 :1:1 
 `uc 1 PD 1 0 :1:2 
 `uc 1 TO 1 0 :1:3 
 `uc 1 RI 1 0 :1:4 
 ]
 "33961
-[u S2506 . 1 `S2477 1 . 1 0 `S2479 1 . 1 0 `S2482 1 . 1 0 `S2485 1 . 1 0 `S2488 1 . 1 0 `S2491 1 . 1 0 `S2500 1 . 1 0 ]
+[u S2431 . 1 `S2402 1 . 1 0 `S2404 1 . 1 0 `S2407 1 . 1 0 `S2410 1 . 1 0 `S2413 1 . 1 0 `S2416 1 . 1 0 `S2425 1 . 1 0 ]
 "33961
 "33961
-[v _RCONbits RCONbits `VES2506  1 e 1 @4048 ]
-[s S2830 . 1 `uc 1 RBIF 1 0 :1:0 
+[v _RCONbits RCONbits `VES2431  1 e 1 @4048 ]
+[s S2755 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -1504,7 +1470,7 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "34968
-[s S2839 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S2764 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -1514,7 +1480,7 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 GIE 1 0 :1:7 
 ]
 "34968
-[s S2848 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S2773 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -1524,7 +1490,7 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 GIEH 1 0 :1:7 
 ]
 "34968
-[s S2857 . 1 `uc 1 . 1 0 :1:0 
+[s S2782 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -1534,24 +1500,24 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 GIE 1 0 :1:7 
 ]
 "34968
-[s S2866 . 1 `uc 1 . 1 0 :6:0 
+[s S2791 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
 "34968
-[u S2870 . 1 `S2830 1 . 1 0 `S2839 1 . 1 0 `S2848 1 . 1 0 `S2857 1 . 1 0 `S2866 1 . 1 0 ]
+[u S2795 . 1 `S2755 1 . 1 0 `S2764 1 . 1 0 `S2773 1 . 1 0 `S2782 1 . 1 0 `S2791 1 . 1 0 ]
 "34968
 "34968
-[v _INTCONbits INTCONbits `VES2870  1 e 1 @4082 ]
-[s S3629 . 1 `uc 1 RX_NINE 1 0 :1:0 
+[v _INTCONbits INTCONbits `VES2795  1 e 1 @4082 ]
+[s S3548 . 1 `uc 1 RX_NINE 1 0 :1:0 
 `uc 1 TX_NINE 1 0 :1:1 
 `uc 1 FRAME_ERROR 1 0 :1:2 
 `uc 1 OVERRUN_ERROR 1 0 :1:3 
 `uc 1 fill 1 0 :4:4 
 ]
 "5 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\pic18\plib\USART\udefs.c
-[u S3635 USART 1 `uc 1 val 1 0 `S3629 1 . 1 0 ]
-[v _USART_Status USART_Status `S3635  1 e 1 0 ]
+[u S3554 USART 1 `uc 1 val 1 0 `S3548 1 . 1 0 ]
+[v _USART_Status USART_Status `S3554  1 e 1 0 ]
 "42 D:\Documenti\GitHub\CanToSerial.X\CanToSerial.c
 [v _sendMessage sendMessage `VEb  1 e 0 0 ]
 "43
@@ -1595,17 +1561,21 @@ CAN_RX_BUFFER_2_OVFL 2
 [v _left_speed left_speed `ui  1 e 2 0 ]
 "66
 [v _right_speed right_speed `ui  1 e 2 0 ]
-"128
+"67
+[v _spam_counter spam_counter `uc  1 e 1 0 ]
+"140
 [v _main main `(v  1 e 0 0 ]
 {
-"153
+"171
+[v main@i_3182 i `uc  1 a 1 48 ]
+"163
 [v main@i i `uc  1 a 1 49 ]
-"183
+"198
 } 0
 "14 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\pic18\plib\USART\uputs.c
 [v _putsUSART putsUSART `(v  1 e 0 0 ]
 {
-[v putsUSART@data data `*.39uc  1 p 2 22 ]
+[v putsUSART@data data `*.39uc  1 p 2 21 ]
 "21
 } 0
 "13 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\pic18\plib\USART\uwrite.c
@@ -1614,38 +1584,38 @@ CAN_RX_BUFFER_2_OVFL 2
 [v WriteUSART@data data `uc  1 a 1 wreg ]
 [v WriteUSART@data data `uc  1 a 1 wreg ]
 "15
-[v WriteUSART@data data `uc  1 a 1 21 ]
+[v WriteUSART@data data `uc  1 a 1 20 ]
 "23
 } 0
 "61 D:\Documenti/LaurTec_PIC_libraries_v_3.3.0/src\delay.c
 [v _delay_ms delay_ms `(v  1 e 0 0 ]
 {
-[v delay_ms@value_ms value_ms `ui  1 p 2 27 ]
+[v delay_ms@value_ms value_ms `ui  1 p 2 26 ]
 "96
 } 0
 "15 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 {
 "17
-[v ___wmul@product product `ui  1 a 2 25 ]
+[v ___wmul@product product `ui  1 a 2 24 ]
 "15
-[v ___wmul@multiplier multiplier `ui  1 p 2 21 ]
-[v ___wmul@multiplicand multiplicand `ui  1 p 2 23 ]
+[v ___wmul@multiplier multiplier `ui  1 p 2 20 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 22 ]
 "53
 } 0
-"227 D:\Documenti\GitHub\CanToSerial.X\CanToSerial.c
+"244 D:\Documenti\GitHub\CanToSerial.X\CanToSerial.c
 [v _configurazione_iniziale configurazione_iniziale `(v  1 e 0 0 ]
 {
-"281
+"298
 } 0
 "73 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\pic18\plib\USART\uopen.c
 [v _OpenUSART OpenUSART `(v  1 e 0 0 ]
 {
 [v OpenUSART@config config `uc  1 a 1 wreg ]
 [v OpenUSART@config config `uc  1 a 1 wreg ]
-[v OpenUSART@spbrg spbrg `ui  1 p 2 21 ]
+[v OpenUSART@spbrg spbrg `ui  1 p 2 20 ]
 "75
-[v OpenUSART@config config `uc  1 a 1 23 ]
+[v OpenUSART@config config `uc  1 a 1 22 ]
 "143
 } 0
 "219 D:\Documenti/LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h
@@ -1653,18 +1623,18 @@ CAN_RX_BUFFER_2_OVFL 2
 {
 [v CANInitialize@propSeg propSeg `uc  1 a 1 wreg ]
 "222
-[v CANInitialize@FilterConfig2 FilterConfig2 `uc  1 a 1 46 ]
+[v CANInitialize@FilterConfig2 FilterConfig2 `uc  1 a 1 45 ]
 "221
-[v CANInitialize@FilterConfig1 FilterConfig1 `uc  1 a 1 45 ]
+[v CANInitialize@FilterConfig1 FilterConfig1 `uc  1 a 1 44 ]
 "219
 [v CANInitialize@propSeg propSeg `uc  1 a 1 wreg ]
-[v CANInitialize@phaseSeg1 phaseSeg1 `uc  1 p 1 35 ]
-[v CANInitialize@phaseSeg2 phaseSeg2 `uc  1 p 1 36 ]
-[v CANInitialize@SJW SJW `uc  1 p 1 37 ]
-[v CANInitialize@BRP BRP `uc  1 p 1 38 ]
-[v CANInitialize@flags flags `E16844  1 p 1 39 ]
+[v CANInitialize@phaseSeg1 phaseSeg1 `uc  1 p 1 34 ]
+[v CANInitialize@phaseSeg2 phaseSeg2 `uc  1 p 1 35 ]
+[v CANInitialize@SJW SJW `uc  1 p 1 36 ]
+[v CANInitialize@BRP BRP `uc  1 p 1 37 ]
+[v CANInitialize@flags flags `E16844  1 p 1 38 ]
 "224
-[v CANInitialize@propSeg propSeg `uc  1 a 1 44 ]
+[v CANInitialize@propSeg propSeg `uc  1 a 1 43 ]
 "290
 } 0
 "641
@@ -1672,13 +1642,13 @@ CAN_RX_BUFFER_2_OVFL 2
 {
 [v CANSetMask@numBuffer numBuffer `E16878  1 a 1 wreg ]
 "642
-[v CANSetMask@tamp tamp `ul  1 a 4 31 ]
+[v CANSetMask@tamp tamp `ul  1 a 4 30 ]
 "641
 [v CANSetMask@numBuffer numBuffer `E16878  1 a 1 wreg ]
-[v CANSetMask@mask mask `ul  1 p 4 21 ]
-[v CANSetMask@type type `E16844  1 p 1 25 ]
+[v CANSetMask@mask mask `ul  1 p 4 20 ]
+[v CANSetMask@type type `E16844  1 p 1 24 ]
 "644
-[v CANSetMask@numBuffer numBuffer `E16878  1 a 1 30 ]
+[v CANSetMask@numBuffer numBuffer `E16878  1 a 1 29 ]
 "743
 } 0
 "749
@@ -1686,13 +1656,13 @@ CAN_RX_BUFFER_2_OVFL 2
 {
 [v CANSetFilter@numBuffer numBuffer `E16881  1 a 1 wreg ]
 "751
-[v CANSetFilter@tamp tamp `ul  1 a 4 31 ]
+[v CANSetFilter@tamp tamp `ul  1 a 4 30 ]
 "749
 [v CANSetFilter@numBuffer numBuffer `E16881  1 a 1 wreg ]
-[v CANSetFilter@filter filter `ul  1 p 4 21 ]
-[v CANSetFilter@type type `E16844  1 p 1 25 ]
+[v CANSetFilter@filter filter `ul  1 p 4 20 ]
+[v CANSetFilter@type type `E16844  1 p 1 24 ]
 "753
-[v CANSetFilter@numBuffer numBuffer `E16881  1 a 1 30 ]
+[v CANSetFilter@numBuffer numBuffer `E16881  1 a 1 29 ]
 "1079
 } 0
 "207
@@ -1701,59 +1671,30 @@ CAN_RX_BUFFER_2_OVFL 2
 [v CANOperationMode@mode mode `E16838  1 a 1 wreg ]
 [v CANOperationMode@mode mode `E16838  1 a 1 wreg ]
 "209
-[v CANOperationMode@mode mode `E16838  1 a 1 21 ]
+[v CANOperationMode@mode mode `E16838  1 a 1 20 ]
 "212
 } 0
-"185 D:\Documenti\GitHub\CanToSerial.X\CanToSerial.c
+"200 D:\Documenti\GitHub\CanToSerial.X\CanToSerial.c
 [v _can_interpreter can_interpreter `(v  1 e 0 0 ]
 {
-"225
+"242
 } 0
 "295 D:\Documenti/LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h
 [v _CANsendMessage CANsendMessage `(v  1 e 0 0 ]
 {
 "297
-[v CANsendMessage@tamp tamp `ul  1 a 4 33 ]
+[v CANsendMessage@tamp tamp `ul  1 a 4 32 ]
 "295
-[v CANsendMessage@identifier identifier `ul  1 p 4 21 ]
-[v CANsendMessage@data data `*.39uc  1 p 2 25 ]
-[v CANsendMessage@dataLength dataLength `uc  1 p 1 27 ]
-[v CANsendMessage@flags flags `E16866  1 p 1 28 ]
+[v CANsendMessage@identifier identifier `ul  1 p 4 20 ]
+[v CANsendMessage@data data `*.39uc  1 p 2 24 ]
+[v CANsendMessage@dataLength dataLength `uc  1 p 1 26 ]
+[v CANsendMessage@flags flags `E16866  1 p 1 27 ]
 "523
 } 0
-"1155
-[v _CANisTxReady CANisTxReady `(uc  1 e 1 0 ]
-{
-"1158
-} 0
-"90 D:\Documenti\GitHub\CanToSerial.X\CanToSerial.c
+"100 D:\Documenti\GitHub\CanToSerial.X\CanToSerial.c
 [v _ISR_bassa ISR_bassa `IIL(v  1 e 0 0 ]
 {
-"110
-[v ISR_bassa@i i `uc  1 a 1 30 ]
-"126
-} 0
-"529 D:\Documenti/LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h
-[v _CANreceiveMessage CANreceiveMessage `(uc  1 e 1 0 ]
-{
-"531
-[v CANreceiveMessage@tamp tamp `uc  1 a 1 11 ]
-"532
-[v CANreceiveMessage@error error `uc  1 a 1 10 ]
-[s S853 . 15 `ul 1 identifier 4 0 `[8]uc 1 data 8 4 `uc 1 type 1 12 `uc 1 length 1 13 `uc 1 RTR 1 14 ]
-"529
-[v CANreceiveMessage@msg msg `*.39S853  1 p 2 0 ]
-"635
-} 0
-"1164
-[v _CANisRxReady CANisRxReady `(uc  1 e 1 0 ]
-{
-"1167
-} 0
-"68 D:\Documenti\GitHub\CanToSerial.X\CanToSerial.c
-[v _ISR_alta ISR_alta `IIH(v  1 e 0 0 ]
-{
-"88
+"138
 } 0
 "14 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\pic18\plib\USART\ugets.c
 [v _getsUSART getsUSART `(v  1 e 0 0 ]
@@ -1773,4 +1714,43 @@ CAN_RX_BUFFER_2_OVFL 2
 "17
 [v ReadUSART@data data `uc  1 a 1 0 ]
 "37
+} 0
+"69 D:\Documenti\GitHub\CanToSerial.X\CanToSerial.c
+[v _ISR_alta ISR_alta `IIH(v  1 e 0 0 ]
+{
+"89
+[v ISR_alta@i i `uc  1 a 1 19 ]
+"98
+} 0
+"295 D:\Documenti/LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h
+[v i2_CANsendMessage CANsendMessage `(v  1 e 0 0 ]
+{
+[v i2CANsendMessage@tamp CANsendMessage `ul  1 a 4 0 ]
+[v i2CANsendMessage@identifier identifier `ul  1 p 4 24 ]
+[v i2CANsendMessage@data data `*.39uc  1 p 2 28 ]
+[v i2CANsendMessage@dataLength dataLength `uc  1 p 1 30 ]
+[v i2CANsendMessage@flags flags `E16866  1 p 1 31 ]
+"523
+} 0
+"529
+[v _CANreceiveMessage CANreceiveMessage `(uc  1 e 1 0 ]
+{
+"531
+[v CANreceiveMessage@tamp tamp `uc  1 a 1 35 ]
+"532
+[v CANreceiveMessage@error error `uc  1 a 1 34 ]
+[s S853 . 15 `ul 1 identifier 4 0 `[8]uc 1 data 8 4 `uc 1 type 1 12 `uc 1 length 1 13 `uc 1 RTR 1 14 ]
+"529
+[v CANreceiveMessage@msg msg `*.39S853  1 p 2 24 ]
+"635
+} 0
+"1155
+[v _CANisTxReady CANisTxReady `(uc  1 e 1 0 ]
+{
+"1158
+} 0
+"1164
+[v _CANisRxReady CANisRxReady `(uc  1 e 1 0 ]
+{
+"1167
 } 0

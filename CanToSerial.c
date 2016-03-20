@@ -64,46 +64,25 @@ unsigned char SerialOutput [] = {0xAA, 0x00, 0x00, 0x00, 0x00, 0x00, 0xAA, '\0'}
 unsigned char SerialOutputOld [] = {0xAA, 0x00, 0x00, 0x00, 0x00, 0x00, 0xAA, '\0'};
 unsigned int left_speed = 0;
 unsigned int right_speed = 0;
+unsigned char spam_counter = 0;
 
 __interrupt(high_priority) void ISR_alta(void) {
-    if (PIR1bits.RC1IF == 1) {
-
-        getsUSART(USART_Rx, 8);
-        if ((USART_Rx[0] == 0xAA)&&(USART_Rx[6] == 0xAA)) {
-            SerialRx = ~SerialRx; //toggle led ricezione seriale
-            set_steering_old = set_steering[0];
-            set_speed_old[0] = set_speed[0];
-            set_speed_old[1] = set_speed[1];
-            analogic_brake_old = analogic_brake[0];
-
-            set_speed[2] = USART_Rx[1]; //direction
-            set_speed[0] = USART_Rx[2];
-            set_speed[1] = USART_Rx[3];
-            set_steering[0] = USART_Rx[4];
-            analogic_brake[0] = USART_Rx[5];
-            newMessageUsart = 1;
-        }
-        PIR1bits.RC1IF = 0;
-    }
-}
-
-__interrupt(low_priority) void ISR_bassa(void) {
     if ((PIR3bits.RXB0IF == 1) || (PIR3bits.RXB1IF == 1)) {
         CanRx = ~CanRx; //toggle led ricezione can bus
         if (CANisRxReady()) {
             CANreceiveMessage(&msg); //leggilo e salvalo
 
-            //            if (msg.identifier == ECU_STATE) {
-            //                LATAbits.LATA1 = 0;
-            //                previousTimeCounter = timeCounter;
-            //                data[0] = 0x03;
-            //                while (CANisTxReady() != 1);
-            //                CANsendMessage(ECU_STATE, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
-            //                MotoreFlag = 1;
-            //                AbsFlag = 0; //resetta flag
-            //                SterzoFlag = 0; //resetta flag
-            //                CanTx = 1;
-            //            }
+            if ((msg.identifier == ECU_STATE)&&(msg.RTR == 1)) {
+                CanTx = ~CanTx;
+                previousTimeCounter = timeCounter;
+                data[0] = 0x03;
+                while (CANisTxReady() != 1);
+                CANsendMessage(ECU_STATE, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+                MotoreFlag = 1;
+                AbsFlag = 0; //resetta flag
+                SterzoFlag = 0; //resetta flag
+                CanTx = 1;
+            }
             RTR_Flag = msg.RTR;
             id = msg.identifier;
             newMessageCan = 1;
@@ -116,6 +95,39 @@ __interrupt(low_priority) void ISR_bassa(void) {
         PIR3bits.RXB0IF = 0;
         PIR3bits.RXB1IF = 0;
     }
+}
+
+__interrupt(low_priority) void ISR_bassa(void) {
+    if (PIR1bits.RC1IF == 1) {
+
+        getsUSART(USART_Rx, 8);
+        if ((USART_Rx[0] == 0xAA)&&(USART_Rx[6] == 0xAA)) {
+            SerialRx = ~SerialRx; //toggle led ricezione seriale
+            set_steering_old = set_steering[0];
+            set_speed_old[0] = set_speed[0];
+            set_speed_old[1] = set_speed[1];
+            analogic_brake_old = analogic_brake[0];
+
+            if (USART_Rx[1] == 1) {
+                set_speed[2] = 0;
+            }
+            if (USART_Rx[1] == 2) {
+                set_speed[2] = 1;
+            }
+
+            set_speed[0] = USART_Rx[3];
+            set_speed[1] = USART_Rx[2];
+            if (set_speed [1] == 0b10000000) {
+                set_speed[1] = 0;
+            }
+            set_steering[0] = USART_Rx[4];
+            analogic_brake[0] = USART_Rx[5];
+            newMessageUsart = 1;
+        }
+        PIR1bits.RC1IF = 0;
+    }
+
+
 
     if (PIR2bits.TMR3IF == 1) { //interrupt timer, ogni 10mS
         timeCounter++; //incrementa di 1 la variabile timer
@@ -142,10 +154,8 @@ void main(void) {
     MotoreFlag = 0;
     SterzoFlag = 0;
     AbsFlag = 0;
-
     while (1) {
         if (newMessageCan == 1) {
-
             can_interpreter();
             SerialOutput[0] = 0xAA;
             SerialOutput[6] = 0xAA;
@@ -153,13 +163,18 @@ void main(void) {
             for (char i = 0; i < 6; i++) {
                 if (SerialOutput[i] == 0) {
                     SerialOutput[i] = 1; //debug
-                    if (SerialOutput [i] == SerialOutputOld [i]) {
-                        sendMessage = 0;
-                    }
                     SerialOutputOld[i] = SerialOutput[i];
                 }
             }
-            if (sendMessage == 1) {
+
+            spam_counter = 0;
+            for (char i = 1; i < 6; i++) {
+                if (SerialOutput[i] == SerialOutputOld[i]) {
+                    spam_counter++;
+                }
+            }
+            if ((BusyUSART() != 1)&&(spam_counter != 5)) {
+                SerialTx = ~SerialTx;
                 putsUSART(SerialOutput);
             }
             newMessageCan = 0;
@@ -185,12 +200,11 @@ void main(void) {
 void can_interpreter(void) {
 
     if (id == ECU_STATE) {
-        LATAbits.LATA1 = 0;
         if (RTR_Flag == 1) { //Se è arrivata la richiesta presenza centraline
             previousTimeCounter = timeCounter;
-            data[0] = 0x03;
-            while (CANisTxReady() != 1);
-            CANsendMessage(ECU_STATE, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+            //data[0] = 0x03;
+            //while (CANisTxReady() != 1);
+            //CANsendMessage(ECU_STATE, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
             MotoreFlag = 1;
             AbsFlag = 0; //resetta flag
             SterzoFlag = 0; //resetta flag
@@ -218,6 +232,9 @@ void can_interpreter(void) {
         right_speed = ((right_speed << 8) | (data[2]));
         SerialOutput[3] = ((left_speed + right_speed) / 2);
         SerialOutput[2] = (((left_speed + right_speed) / 2) >> 8);
+        if (SerialOutput[2] == 0){
+            SerialOutput[2] = 0b10000000;
+        }
     }
     if (id == LOW_BATTERY) {
         SerialOutput[5] = data[0];
@@ -238,9 +255,9 @@ void configurazione_iniziale(void) {
     PIR3bits.RXB0IF = 0; //azzera flag interrupt can bus buffer0
     PIR1bits.RC1IF = 0; //azzera flag interrupt ricezione seriale
 
-    IPR3bits.RXB1IP = 0; //interrupt bassa priorità per can
-    IPR3bits.RXB0IP = 0; //interrupt bassa priorità per can
-    IPR1bits.RC1IP = 1; //interrupt alta priorità ricezione seriale
+    IPR3bits.RXB1IP = 1; //interrupt bassa priorità per can
+    IPR3bits.RXB0IP = 1; //interrupt bassa priorità per can
+    IPR1bits.RC1IP = 0; //interrupt alta priorità ricezione seriale
 
     PIE3bits.RXB1IE = 1; //abilita interrupt ricezione can bus buffer1
     PIE3bits.RXB0IE = 1; //abilita interrupt ricezione can bus buffer0

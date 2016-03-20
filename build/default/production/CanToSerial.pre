@@ -20492,36 +20492,25 @@ unsigned char SerialOutput [] = {0xAA, 0x00, 0x00, 0x00, 0x00, 0x00, 0xAA, '\0'}
 unsigned char SerialOutputOld [] = {0xAA, 0x00, 0x00, 0x00, 0x00, 0x00, 0xAA, '\0'};
 unsigned int left_speed = 0;
 unsigned int right_speed = 0;
+unsigned char spam_counter = 0;
 
 __attribute__((interrupt("__high_priority"))) void ISR_alta(void) {
-if (PIR1bits.RC1IF == 1) {
-
-getsUSART(USART_Rx, 8);
-if ((USART_Rx[0] == 0xAA)&&(USART_Rx[6] == 0xAA)) {
-LATDbits.LATD1 = ~LATDbits.LATD1;
-set_steering_old = set_steering[0];
-set_speed_old[0] = set_speed[0];
-set_speed_old[1] = set_speed[1];
-analogic_brake_old = analogic_brake[0];
-
-set_speed[2] = USART_Rx[1];
-set_speed[0] = USART_Rx[2];
-set_speed[1] = USART_Rx[3];
-set_steering[0] = USART_Rx[4];
-analogic_brake[0] = USART_Rx[5];
-newMessageUsart = 1;
-}
-PIR1bits.RC1IF = 0;
-}
-}
-
-__attribute__((interrupt("__low_priority"))) void ISR_bassa(void) {
 if ((PIR3bits.RXB0IF == 1) || (PIR3bits.RXB1IF == 1)) {
 LATDbits.LATD3 = ~LATDbits.LATD3;
 if (CANisRxReady()) {
 CANreceiveMessage(&msg);
 
-# 107
+if ((msg.identifier == 0b00000000000000000000000000010)&&(msg.RTR == 1)) {
+LATDbits.LATD2 = ~LATDbits.LATD2;
+previousTimeCounter = timeCounter;
+data[0] = 0x03;
+while (CANisTxReady() != 1);
+CANsendMessage(0b00000000000000000000000000010, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+LATDbits.LATD4 = 1;
+LATDbits.LATD5 = 0;
+LATDbits.LATD6 = 0;
+LATDbits.LATD2 = 1;
+}
 RTR_Flag = msg.RTR;
 id = msg.identifier;
 newMessageCan = 1;
@@ -20534,6 +20523,39 @@ data[i] = msg.data[i];
 PIR3bits.RXB0IF = 0;
 PIR3bits.RXB1IF = 0;
 }
+}
+
+__attribute__((interrupt("__low_priority"))) void ISR_bassa(void) {
+if (PIR1bits.RC1IF == 1) {
+
+getsUSART(USART_Rx, 8);
+if ((USART_Rx[0] == 0xAA)&&(USART_Rx[6] == 0xAA)) {
+LATDbits.LATD1 = ~LATDbits.LATD1;
+set_steering_old = set_steering[0];
+set_speed_old[0] = set_speed[0];
+set_speed_old[1] = set_speed[1];
+analogic_brake_old = analogic_brake[0];
+
+if (USART_Rx[1] == 1) {
+set_speed[2] = 0;
+}
+if (USART_Rx[1] == 2) {
+set_speed[2] = 1;
+}
+
+set_speed[0] = USART_Rx[3];
+set_speed[1] = USART_Rx[2];
+if (set_speed [1] == 0b10000000) {
+set_speed[1] = 0;
+}
+set_steering[0] = USART_Rx[4];
+analogic_brake[0] = USART_Rx[5];
+newMessageUsart = 1;
+}
+PIR1bits.RC1IF = 0;
+}
+
+
 
 if (PIR2bits.TMR3IF == 1) {
 timeCounter++;
@@ -20560,10 +20582,8 @@ LATDbits.LATD1 = 0;
 LATDbits.LATD4 = 0;
 LATDbits.LATD6 = 0;
 LATDbits.LATD5 = 0;
-
 while (1) {
 if (newMessageCan == 1) {
-
 can_interpreter();
 SerialOutput[0] = 0xAA;
 SerialOutput[6] = 0xAA;
@@ -20571,13 +20591,18 @@ SerialOutput[7] = '\0';
 for (char i = 0; i < 6; i++) {
 if (SerialOutput[i] == 0) {
 SerialOutput[i] = 1;
-if (SerialOutput [i] == SerialOutputOld [i]) {
-sendMessage = 0;
-}
 SerialOutputOld[i] = SerialOutput[i];
 }
 }
-if (sendMessage == 1) {
+
+spam_counter = 0;
+for (char i = 1; i < 6; i++) {
+if (SerialOutput[i] == SerialOutputOld[i]) {
+spam_counter++;
+}
+}
+if (((!TXSTAbits.TRMT) != 1)&&(spam_counter != 5)) {
+LATDbits.LATD0 = ~LATDbits.LATD0;
 putsUSART(SerialOutput);
 }
 newMessageCan = 0;
@@ -20603,12 +20628,11 @@ newMessageUsart = 0;
 void can_interpreter(void) {
 
 if (id == 0b00000000000000000000000000010) {
-LATAbits.LATA1 = 0;
 if (RTR_Flag == 1) {
 previousTimeCounter = timeCounter;
-data[0] = 0x03;
-while (CANisTxReady() != 1);
-CANsendMessage(0b00000000000000000000000000010, data, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
+
+
+
 LATDbits.LATD4 = 1;
 LATDbits.LATD5 = 0;
 LATDbits.LATD6 = 0;
@@ -20636,6 +20660,9 @@ right_speed = data[3];
 right_speed = ((right_speed << 8) | (data[2]));
 SerialOutput[3] = ((left_speed + right_speed) / 2);
 SerialOutput[2] = (((left_speed + right_speed) / 2) >> 8);
+if (SerialOutput[2] == 0){
+SerialOutput[2] = 0b10000000;
+}
 }
 if (id == 0b00000000000000000000000001001) {
 SerialOutput[5] = data[0];
@@ -20656,9 +20683,9 @@ PIR3bits.RXB1IF = 0;
 PIR3bits.RXB0IF = 0;
 PIR1bits.RC1IF = 0;
 
-IPR3bits.RXB1IP = 0;
-IPR3bits.RXB0IP = 0;
-IPR1bits.RC1IP = 1;
+IPR3bits.RXB1IP = 1;
+IPR3bits.RXB0IP = 1;
+IPR1bits.RC1IP = 0;
 
 PIE3bits.RXB1IE = 1;
 PIE3bits.RXB0IE = 1;
