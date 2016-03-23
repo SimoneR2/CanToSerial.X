@@ -38,6 +38,8 @@
 
 void configurazione_iniziale(void);
 void can_interpreter(void);
+void usart_interpreter(void);
+void usart_tx(void);
 
 volatile bit sendMessage = 0;
 volatile bit newMessageCan = 0;
@@ -67,7 +69,7 @@ unsigned int right_speed = 0;
 unsigned char spam_counter = 0;
 
 __interrupt(high_priority) void ISR_alta(void) {
-    if ((PIR3bits.RXB0IF == 1) || (PIR3bits.RXB1IF == 1)) {
+    if (PIR3bits.RXB0IF == 1) {
         CanRx = ~CanRx; //toggle led ricezione can bus
         if (CANisRxReady()) {
             CANreceiveMessage(&msg); //leggilo e salvalo
@@ -93,41 +95,33 @@ __interrupt(high_priority) void ISR_alta(void) {
 
         }
         PIR3bits.RXB0IF = 0;
-        PIR3bits.RXB1IF = 0;
     }
 }
 
 __interrupt(low_priority) void ISR_bassa(void) {
-    if (PIR1bits.RC1IF == 1) {
 
+    if (PIR1bits.RC1IF == 1) { //RICEZIONE USART
         getsUSART(USART_Rx, 8);
-        if ((USART_Rx[0] == 0xAA)&&(USART_Rx[6] == 0xAA)) {
-            SerialRx = ~SerialRx; //toggle led ricezione seriale
-            set_steering_old = set_steering[0];
-            set_speed_old[0] = set_speed[0];
-            set_speed_old[1] = set_speed[1];
-            analogic_brake_old = analogic_brake[0];
-
-            if (USART_Rx[1] == 1) {
-                set_speed[2] = 0;
-            }
-            if (USART_Rx[1] == 2) {
-                set_speed[2] = 1;
-            }
-
-            set_speed[0] = USART_Rx[3];
-            set_speed[1] = USART_Rx[2];
-            if (set_speed [1] == 0b10000000) {
-                set_speed[1] = 0;
-            }
-            set_steering[0] = USART_Rx[4];
-            analogic_brake[0] = USART_Rx[5];
-            newMessageUsart = 1;
-        }
+        newMessageUsart = 1;
         PIR1bits.RC1IF = 0;
     }
 
 
+    if (PIR3bits.RXB1IF == 1) { //RICEZIONE CAN
+        CanRx = ~CanRx; //toggle led ricezione can bus
+        if (CANisRxReady()) {
+            CANreceiveMessage(&msg); //leggilo e salvalo
+            RTR_Flag = msg.RTR;
+            id = msg.identifier;
+            newMessageCan = 1;
+            for (unsigned char i = 0; i < 8; i++) {
+                data[i] = msg.data[i];
+            }
+
+
+        }
+        PIR3bits.RXB1IF = 0;
+    }
 
     if (PIR2bits.TMR3IF == 1) { //interrupt timer, ogni 10mS
         timeCounter++; //incrementa di 1 la variabile timer
@@ -157,34 +151,16 @@ void main(void) {
     while (1) {
         if (newMessageCan == 1) {
             can_interpreter();
-            SerialOutput[0] = 0xAA;
-            SerialOutput[6] = 0xAA;
-            SerialOutput[7] = '\0';
-            for (char i = 0; i < 6; i++) {
-                if (SerialOutput[i] == 0) {
-                    SerialOutput[i] = 1; //debug
-                    
-                }
-            }
-
-            spam_counter = 0;
-            for (char i = 1; i < 6; i++) {
-                if (SerialOutput[i] == SerialOutputOld[i]) {
-                    spam_counter++;
-                }
-            }
-            if ((BusyUSART() != 1)&&(spam_counter != 5)) {
-                SerialTx = ~SerialTx;
-                putsUSART(SerialOutput);
-                for (char i = 0; i<6; i++){
-                SerialOutputOld[i] = SerialOutput[i];
-                }
-            }
+            SerialOutput[0] = 0xAA; //costruzione pacchetto standard
+            SerialOutput[6] = 0xAA; //costruzione pacchetto standard
+            SerialOutput[7] = '\0'; //costruzione pacchetto standard
+            usart_tx();
             newMessageCan = 0;
         }
-        
+
         if (newMessageUsart == 1) {
             CanTx = ~CanTx; //toggle led invio can bus
+            usart_interpreter();
             if (set_steering_old != set_steering[0]) {
                 CANsendMessage(STEERING_CHANGE, set_steering, 8, CAN_CONFIG_STD_MSG & CAN_NORMAL_TX_FRAME & CAN_TX_PRIORITY_0);
             }
@@ -198,7 +174,6 @@ void main(void) {
             newMessageUsart = 0;
         }
     }
-
 }
 
 void can_interpreter(void) {
@@ -236,7 +211,7 @@ void can_interpreter(void) {
         right_speed = ((right_speed << 8) | (data[2]));
         SerialOutput[3] = ((left_speed + right_speed) / 2);
         SerialOutput[2] = (((left_speed + right_speed) / 2) >> 8);
-        if (SerialOutput[2] == 0){
+        if (SerialOutput[2] == 0) {
             SerialOutput[2] = 0b10000000;
         }
     }
@@ -245,10 +220,74 @@ void can_interpreter(void) {
     }
 }
 
+void usart_interpreter(void) {
+    if ((USART_Rx[0] == 0xAA)&&(USART_Rx[6] == 0xAA)) {
+        SerialRx = ~SerialRx; //toggle led ricezione seriale
+        set_steering_old = set_steering[0];
+        set_speed_old[0] = set_speed[0];
+        set_speed_old[1] = set_speed[1];
+        analogic_brake_old = analogic_brake[0];
+
+        if (USART_Rx[1] == 1) {
+            set_speed[2] = 0;
+        }
+        if (USART_Rx[1] == 2) {
+            set_speed[2] = 1;
+        }
+
+        set_speed[0] = USART_Rx[3];
+        set_speed[1] = USART_Rx[2];
+        if (set_speed [1] == 0b10000000) {
+            set_speed[1] = 0;
+        }
+        set_steering[0] = USART_Rx[4];
+        analogic_brake[0] = USART_Rx[5];
+    }
+}
+
+void usart_tx(void) {
+    /*
+     * La routine di invio dati delle librerie
+     * considera il primo dato a 0 come la fine
+     * della trasmissione, per cui in caso di 
+     * dato = 0, il programma lo pone a 1.
+     */
+    for (char i = 0; i < 6; i++) {
+        if (SerialOutput[i] == 0) {
+            SerialOutput[i] = 1; //debug
+        }
+    }
+
+    /*
+     * Queste istruzioni servono ad evitare
+     * di continuare a mandare messaggi via
+     * seriale verificando se quello che 
+     * si sta per mandare è uguale o meno
+     * a quello già mandato in precedenza
+     */
+
+    spam_counter = 0;
+    for (char i = 1; i < 6; i++) {
+        if (SerialOutput[i] == SerialOutputOld[i]) {
+            spam_counter++;
+        }
+    }
+    if ((BusyUSART() != 1)&&(spam_counter != 5)) {
+        SerialTx = ~SerialTx;
+        putsUSART(SerialOutput);
+        for (char i = 0; i < 6; i++) {
+            SerialOutputOld[i] = SerialOutput[i];
+        }
+    }
+
+}
+
 void configurazione_iniziale(void) {
     CloseUSART(); //disabilita periferica per poterla impostare
     CANInitialize(4, 6, 5, 1, 3, CAN_CONFIG_LINE_FILTER_OFF & CAN_CONFIG_SAMPLE_ONCE & CAN_CONFIG_ALL_VALID_MSG & CAN_CONFIG_DBL_BUFFER_ON); //Canbus 125kHz (da cambiare)
-
+    CANOperationMode(CAN_OP_MODE_CONFIG);
+    CANSetFilter(CAN_FILTER_B1_F1, 0b00000000010, CAN_CONFIG_STD_MSG);
+    CANOperationMode(CAN_OP_MODE_NORMAL);
     OpenUSART(USART_TX_INT_OFF & USART_RX_INT_ON & USART_ASYNCH_MODE & USART_EIGHT_BIT & USART_BRGH_HIGH & USART_CONT_RX, 103); //Seriale asincrona, 8bit, 9600baud
 
     RCSTAbits.SPEN = 1; //abilita la periferica
@@ -259,8 +298,8 @@ void configurazione_iniziale(void) {
     PIR3bits.RXB0IF = 0; //azzera flag interrupt can bus buffer0
     PIR1bits.RC1IF = 0; //azzera flag interrupt ricezione seriale
 
-    IPR3bits.RXB1IP = 1; //interrupt bassa priorità per can
-    IPR3bits.RXB0IP = 1; //interrupt bassa priorità per can
+    IPR3bits.RXB1IP = 0; //interrupt bassa priorità per can
+    IPR3bits.RXB0IP = 1; //interrupt alta priorità per can
     IPR1bits.RC1IP = 0; //interrupt alta priorità ricezione seriale
 
     PIE3bits.RXB1IE = 1; //abilita interrupt ricezione can bus buffer1
