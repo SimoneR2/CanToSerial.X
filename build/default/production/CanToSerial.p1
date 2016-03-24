@@ -1292,26 +1292,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1894 . . . . . ]
 "30884
 [v _IPR1bits `VS1894 ~T0 @X0 0 e@3999 ]
-"31144
-[s S1909 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1909 . RXB0IE RXB1IE TXB0IE TXB1IE TXB2IE ERRIE WAKIE IRXIE ]
-"31154
-[s S1910 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S1910 . FIFOWMIE RXBnIE . TXBnIE ]
-"31160
-[s S1911 :1 `uc 1 ]
-[n S1911 . FIFOMWIE ]
-"31163
-[s S1912 :1 `uc 1 :1 `uc 1 ]
-[n S1912 . . RXBNIE ]
-"31167
-[s S1913 :4 `uc 1 :1 `uc 1 ]
-[n S1913 . . TXBNIE ]
-"31143
-[u S1908 `S1909 1 `S1910 1 `S1911 1 `S1912 1 `S1913 1 ]
-[n S1908 . . . . . . ]
-"31172
-[v _PIE3bits `VS1908 ~T0 @X0 0 e@4003 ]
 "28961
 [v _LATA `Vuc ~T0 @X0 0 e@3977 ]
 "29591
@@ -1376,6 +1356,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1899 . . . ]
 "30964
 [v _PIE2bits `VS1899 ~T0 @X0 0 e@4000 ]
+"31144
+[s S1909 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1909 . RXB0IE RXB1IE TXB0IE TXB1IE TXB2IE ERRIE WAKIE IRXIE ]
+"31154
+[s S1910 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S1910 . FIFOWMIE RXBnIE . TXBnIE ]
+"31160
+[s S1911 :1 `uc 1 ]
+[n S1911 . FIFOMWIE ]
+"31163
+[s S1912 :1 `uc 1 :1 `uc 1 ]
+[n S1912 . . RXBNIE ]
+"31167
+[s S1913 :4 `uc 1 :1 `uc 1 ]
+[n S1913 . . TXBNIE ]
+"31143
+[u S1908 `S1909 1 `S1910 1 `S1911 1 `S1912 1 `S1913 1 ]
+[n S1908 . . . . . . ]
+"31172
+[v _PIE3bits `VS1908 ~T0 @X0 0 e@4003 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -20087,82 +20087,85 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;CanToSerial.c: 301: IPR1bits.RCIP = 1;
 "301
 [e = . . _IPR1bits 0 5 -> -> 1 `i `uc ]
-[; ;CanToSerial.c: 303: PIE3bits.RXB1IE = 1;
-"303
-[e = . . _PIE3bits 0 1 -> -> 1 `i `uc ]
-[; ;CanToSerial.c: 304: PIE3bits.RXB0IE = 1;
-"304
-[e = . . _PIE3bits 0 0 -> -> 1 `i `uc ]
-[; ;CanToSerial.c: 305: PIE1bits.RCIE = 1;
+[; ;CanToSerial.c: 305: LATA = 0x00;
 "305
-[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
-[; ;CanToSerial.c: 307: LATA = 0x00;
-"307
 [e = _LATA -> -> 0 `i `uc ]
-[; ;CanToSerial.c: 308: TRISA = 0b01111101;
-"308
+[; ;CanToSerial.c: 306: TRISA = 0b01111101;
+"306
 [e = _TRISA -> -> 125 `i `uc ]
-[; ;CanToSerial.c: 310: LATB = 0x00;
-"310
+[; ;CanToSerial.c: 308: LATB = 0x00;
+"308
 [e = _LATB -> -> 0 `i `uc ]
-[; ;CanToSerial.c: 311: TRISB = 0b11111011;
-"311
+[; ;CanToSerial.c: 309: TRISB = 0b11111011;
+"309
 [e = _TRISB -> -> 251 `i `uc ]
-[; ;CanToSerial.c: 313: LATC = 0x00;
-"313
+[; ;CanToSerial.c: 311: LATC = 0x00;
+"311
 [e = _LATC -> -> 0 `i `uc ]
-[; ;CanToSerial.c: 314: TRISC = 0b10111111;
-"314
+[; ;CanToSerial.c: 312: TRISC = 0b10111111;
+"312
 [e = _TRISC -> -> 191 `i `uc ]
-[; ;CanToSerial.c: 316: LATD = 0x00;
-"316
+[; ;CanToSerial.c: 314: LATD = 0x00;
+"314
 [e = _LATD -> -> 0 `i `uc ]
-[; ;CanToSerial.c: 317: TRISD = 0x00;
-"317
+[; ;CanToSerial.c: 315: TRISD = 0x00;
+"315
 [e = _TRISD -> -> 0 `i `uc ]
-[; ;CanToSerial.c: 319: LATE = 0x00;
-"319
+[; ;CanToSerial.c: 317: LATE = 0x00;
+"317
 [e = _LATE -> -> 0 `i `uc ]
-[; ;CanToSerial.c: 320: TRISE = 0b00000100;
-"320
+[; ;CanToSerial.c: 318: TRISE = 0b00000100;
+"318
 [e = _TRISE -> -> 4 `i `uc ]
-[; ;CanToSerial.c: 322: ADCON1bits.PCFG0 = 1;
-"322
+[; ;CanToSerial.c: 320: ADCON1bits.PCFG0 = 1;
+"320
 [e = . . _ADCON1bits 1 0 -> -> 1 `i `uc ]
-[; ;CanToSerial.c: 323: ADCON1bits.PCFG1 = 1;
-"323
+[; ;CanToSerial.c: 321: ADCON1bits.PCFG1 = 1;
+"321
 [e = . . _ADCON1bits 1 1 -> -> 1 `i `uc ]
-[; ;CanToSerial.c: 324: ADCON1bits.PCFG2 = 1;
-"324
+[; ;CanToSerial.c: 322: ADCON1bits.PCFG2 = 1;
+"322
 [e = . . _ADCON1bits 1 2 -> -> 1 `i `uc ]
-[; ;CanToSerial.c: 325: ADCON1bits.PCFG3 = 1;
-"325
+[; ;CanToSerial.c: 323: ADCON1bits.PCFG3 = 1;
+"323
 [e = . . _ADCON1bits 1 3 -> -> 1 `i `uc ]
-[; ;CanToSerial.c: 328: T3CON = 0x01;
-"328
+[; ;CanToSerial.c: 326: T3CON = 0x01;
+"326
 [e = _T3CON -> -> 1 `i `uc ]
-[; ;CanToSerial.c: 329: PIR2bits.TMR3IF = 0;
-"329
+[; ;CanToSerial.c: 327: PIR2bits.TMR3IF = 0;
+"327
 [e = . . _PIR2bits 0 1 -> -> 0 `i `uc ]
-[; ;CanToSerial.c: 330: IPR2bits.TMR3IP = 0;
-"330
+[; ;CanToSerial.c: 328: IPR2bits.TMR3IP = 0;
+"328
 [e = . . _IPR2bits 0 1 -> -> 0 `i `uc ]
-[; ;CanToSerial.c: 332: TMR3H = 0x63;
-"332
+[; ;CanToSerial.c: 330: TMR3H = 0x63;
+"330
 [e = _TMR3H -> -> 99 `i `uc ]
-[; ;CanToSerial.c: 333: TMR3L = 0xC0;
-"333
+[; ;CanToSerial.c: 331: TMR3L = 0xC0;
+"331
 [e = _TMR3L -> -> 192 `i `uc ]
-[; ;CanToSerial.c: 335: PIE2bits.TMR3IE = 1;
-"335
+[; ;CanToSerial.c: 333: PIE2bits.TMR3IE = 1;
+"333
 [e = . . _PIE2bits 0 1 -> -> 1 `i `uc ]
-[; ;CanToSerial.c: 337: INTCONbits.GIEH = 1;
-"337
+[; ;CanToSerial.c: 335: INTCONbits.GIEH = 1;
+"335
 [e = . . _INTCONbits 2 7 -> -> 1 `i `uc ]
-[; ;CanToSerial.c: 338: INTCONbits.GIEL = 1;
-"338
+[; ;CanToSerial.c: 336: INTCONbits.GIEL = 1;
+"336
 [e = . . _INTCONbits 2 6 -> -> 1 `i `uc ]
-[; ;CanToSerial.c: 339: }
+[; ;CanToSerial.c: 339: PIE3bits.RXB1IE = 1;
 "339
+[e = . . _PIE3bits 0 1 -> -> 1 `i `uc ]
+[; ;CanToSerial.c: 340: PIE3bits.RXB0IE = 1;
+"340
+[e = . . _PIE3bits 0 0 -> -> 1 `i `uc ]
+[; ;CanToSerial.c: 341: PIE1bits.RCIE = 1;
+"341
+[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
+[; ;CanToSerial.c: 342: delay_ms(300);
+"342
+[e ( _delay_ms (1 -> -> 300 `i `ui ]
+[; ;CanToSerial.c: 343: }
+"343
 [e :UE 2414 ]
 }

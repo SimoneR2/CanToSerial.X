@@ -5,7 +5,7 @@ Linker command line:
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.35\dat\en_msgs.txt -cs \
   -h+dist/default/production\CanToSerial.X.production.sym \
   --cmf=dist/default/production\CanToSerial.X.production.cmf -z -Q18F4480 \
-  -oC:\Users\Simone\AppData\Local\Temp\s7tk.2 \
+  -oC:\Users\Simone\AppData\Local\Temp\s4tc.2 \
   -Mdist/default/production/CanToSerial.X.production.map -E1 -ver=XC8 \
   --acfsm=1493 -ASTACK=0BCh-02ffh -pstack=STACK -ACODE=00h-03FFFh \
   -ACONST=00h-03FFFh -ASMALLCONST=0300h-03FFhx61 -AMEDIUMCONST=0300h-03FFFh \
@@ -21,7 +21,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\Simone\AppData\Local\Temp\s7tk.obj \
+  C:\Users\Simone\AppData\Local\Temp\s4tc.obj \
   dist/default/production\CanToSerial.X.production.obj 
 
 Object code version is 3.11
@@ -34,7 +34,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Simone\AppData\Local\Temp\s7tk.obj
+C:\Users\Simone\AppData\Local\Temp\s4tc.obj
                 end_init                             16       16        4        4       0
                 reset_vec                             0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
@@ -42,24 +42,24 @@ C:\Users\Simone\AppData\Local\Temp\s7tk.obj
 dist/default/production\CanToSerial.X.production.obj
                 intcode                               8        8        E        4       0
                 temp                                 43       43        1        1       1
-                text19                             2446     2446       16        4       0
+                text19                             2454     2454       16        4       0
                 text18                             11D4     11D4      50C        4       0
-                text17                             228E     228E       68        4       0
+                text17                             229C     229C       68        4       0
                 intcode_body                       1F6C     1F6C      11E        4       0
-                text15                             2428     2428       1E        4       0
+                text15                             2436     2436       1E        4       0
                 text14                              A60      A60      774        4       0
                 text13                             1A3E     1A3E      1E8        4       0
-                text12                             246E     246E       12        4       0
+                text12                             247C     247C       12        4       0
                 text11                               1A       1A      A46        4       0
                 text10                             16E0     16E0      35E        4       0
                 text9                              1C26     1C26      1B2        4       0
-                text8                              22F6     22F6       60        4       0
-                text7                              218C     218C       9A        4       0
-                text6                              23D8     23D8       2A        4       0
-                text5                              23A6     23A6       32        4       0
-                text4                              2356     2356       50        4       0
-                text3                              245C     245C       12        4       0
-                text2                              2402     2402       26        4       0
+                text8                              2304     2304       60        4       0
+                text7                              23E6     23E6       2A        4       0
+                text6                              23B4     23B4       32        4       0
+                text5                              218C     218C       A8        4       0
+                text4                              2364     2364       50        4       0
+                text3                              246A     246A       12        4       0
+                text2                              2410     2410       26        4       0
                 text1                              208A     208A      102        4       0
                 text0                              1DD8     1DD8      194        4       0
                 cstackCOMRAM                          1        1       21        1       1
@@ -69,9 +69,9 @@ dist/default/production\CanToSerial.X.production.obj
                 dataCOMRAM                           39       39        9        1       1
                 bssCOMRAM                            22       22       17        1       1
                 bitbssCOMRAM                        210       42        5        1       1     8
-                cinit                              2226     2226       68        4       0
-                idataBANK0                         2489     2489        8        4       0
-                idataCOMRAM                        2480     2480        9        4       0
+                cinit                              2234     2234       68        4       0
+                idataBANK0                         2497     2497        8        4       0
+                idataCOMRAM                        248E     248E        9        4       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
@@ -80,29 +80,29 @@ TOTAL           Name                               Link     Load   Length     Sp
                 end_init                             16       16        4         0
                 intcode                               8        8        E         0
                 reset_vec                             0        0        4         0
-                text19                             2446     2446       16         0
+                text19                             2454     2454       16         0
                 text18                             11D4     11D4      50C         0
-                text17                             228E     228E       68         0
+                text17                             229C     229C       68         0
                 intcode_body                       1F6C     1F6C      11E         0
-                text15                             2428     2428       1E         0
+                text15                             2436     2436       1E         0
                 text14                              A60      A60      774         0
                 text13                             1A3E     1A3E      1E8         0
-                text12                             246E     246E       12         0
+                text12                             247C     247C       12         0
                 text11                               1A       1A      A46         0
                 text10                             16E0     16E0      35E         0
                 text9                              1C26     1C26      1B2         0
-                text8                              22F6     22F6       60         0
-                text7                              218C     218C       9A         0
-                text6                              23D8     23D8       2A         0
-                text5                              23A6     23A6       32         0
-                text4                              2356     2356       50         0
-                text3                              245C     245C       12         0
-                text2                              2402     2402       26         0
+                text8                              2304     2304       60         0
+                text7                              23E6     23E6       2A         0
+                text6                              23B4     23B4       32         0
+                text5                              218C     218C       A8         0
+                text4                              2364     2364       50         0
+                text3                              246A     246A       12         0
+                text2                              2410     2410       26         0
                 text1                              208A     208A      102         0
                 text0                              1DD8     1DD8      194         0
-                cinit                              2226     2226       68         0
-                idataBANK0                         2489     2489        8         0
-                idataCOMRAM                        2480     2480        9         0
+                cinit                              2234     2234       68         0
+                idataBANK0                         2497     2497        8         0
+                idataCOMRAM                        248E     248E        9         0
 
         CLASS   CONST          
 
@@ -150,7 +150,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
 
                 reset_vec                      000000  000004  000004         0       0  CODE    
                 cstackCOMRAM                   000001  000043  000044         1       1  COMRAM  
-                intcode                        000008  002489  002491         4       0  CODE    
+                intcode                        000008  002497  00249F         4       0  CODE    
                 bssBANK0                       000060  00005C  0000BC        60       1  BANK0   
                 idloc                          200000  000008  200008    200000       0  IDLOC   
                 config                         300000  00000E  30000E    300000       0  CONFIG  
@@ -165,15 +165,15 @@ UNUSED ADDRESS RANGES
         BIGRAM           000044-00005F               1C
                          0000BC-0002FF              244
         CODE             000004-000007                4
-                         002491-003FFF             1B6F
+                         00249F-003FFF             1B61
         COMRAM           000044-00005F               1C
         CONST            000004-000007                4
-                         002491-003FFF             1B6F
+                         00249F-003FFF             1B61
         EEDATA           F00000-F000FF              100
-        MEDIUMCONST      002491-003FFF             1B6F
+        MEDIUMCONST      00249F-003FFF             1B61
         RAM              0000BC-0002FF              100
         SFR              000D00-000FFF              100
-        SMALLCONST       002491-003FFF              100
+        SMALLCONST       00249F-003FFF              100
         STACK            0000BC-0002FF              244
 
                                   Symbol Table
@@ -217,13 +217,13 @@ _BRGCON3bits                      (abs)        000F72
 _CANCON                           (abs)        000F6F
 _CANCONbits                       (abs)        000F6F
 _CANInitialize                    text9        001C26
-_CANOperationMode                 text12       00246E
+_CANOperationMode                 text12       00247C
 _CANSTAT                          (abs)        000F6E
 _CANSetFilter                     text11       00001A
 _CANSetMask                       text10       0016E0
-_CANisRxReady                     text19       002446
+_CANisRxReady                     text19       002454
 _CANisRxReady$3215                cstackCOMRAM 000001
-_CANisTxReady                     text15       002428
+_CANisTxReady                     text15       002436
 _CANisTxReady$3213                cstackCOMRAM 00001D
 _CANreceiveMessage                text18       0011D4
 _CANsendMessage                   text14       000A60
@@ -239,7 +239,7 @@ _LATC                             (abs)        000F8B
 _LATD                             (abs)        000F8C
 _LATDbits                         (abs)        000F8C
 _LATE                             (abs)        000F8D
-_OpenUSART                        text8        0022F6
+_OpenUSART                        text8        002304
 _PIE1                             (abs)        000F9D
 _PIE1bits                         (abs)        000F9D
 _PIE2bits                         (abs)        000FA0
@@ -396,7 +396,7 @@ _TXSTA                            (abs)        000FAC
 _TXSTAbits                        (abs)        000FAC
 _USART_Rx                         bssBANK0     000068
 _USART_Status                     bssCOMRAM    000034
-_WriteUSART                       text3        00245C
+_WriteUSART                       text3        00246A
 __CFG_BBSIZ$1024                  (abs)        000000
 __CFG_BOREN$BOHW                  (abs)        000000
 __CFG_BORV$3                      (abs)        000000
@@ -594,65 +594,65 @@ ___intlo_sp                       stack        000000
 ___param_bank                     (abs)        000010
 ___rparam_used                    (abs)        000001
 ___sp                             stack        000000
-___wmul                           text6        0023D8
+___wmul                           text7        0023E6
 ___wmul@multiplicand              cstackCOMRAM 00001F
 ___wmul@multiplier                cstackCOMRAM 00001D
 ___wmul@product                   cstackBANK0  00009E
 __accesstop                       (abs)        000060
 __activetblptr                    (abs)        000002
 __end_of_CANInitialize            text9        001DD8
-__end_of_CANOperationMode         text12       002480
+__end_of_CANOperationMode         text12       00248E
 __end_of_CANSetFilter             text11       000A60
 __end_of_CANSetMask               text10       001A3E
-__end_of_CANisRxReady             text19       00245C
-__end_of_CANisTxReady             text15       002446
+__end_of_CANisRxReady             text19       00246A
+__end_of_CANisTxReady             text15       002454
 __end_of_CANreceiveMessage        text18       0016E0
 __end_of_CANsendMessage           text14       0011D4
 __end_of_ISR_alta                 intcode_body 00208A
-__end_of_OpenUSART                text8        002356
-__end_of_WriteUSART               text3        00246E
-__end_of___wmul                   text6        002402
-__end_of__initialization          cinit        002280
+__end_of_OpenUSART                text8        002364
+__end_of_WriteUSART               text3        00247C
+__end_of___wmul                   text7        002410
+__end_of__initialization          cinit        00228E
 __end_of_can_interpreter          text13       001C26
-__end_of_configurazione_iniziale  text7        002226
-__end_of_delay_ms                 text5        0023D8
+__end_of_configurazione_iniziale  text5        002234
+__end_of_delay_ms                 text6        0023E6
 __end_of_main                     text0        001F6C
-__end_of_putsUSART                text2        002428
-__end_of_usart_interpreter        text4        0023A6
-__end_of_usart_rx                 text17       0022F6
+__end_of_putsUSART                text2        002436
+__end_of_usart_interpreter        text4        0023B4
+__end_of_usart_rx                 text17       002304
 __end_of_usart_tx                 text1        00218C
-__initialization                  cinit        002226
+__initialization                  cinit        002234
 __mediumconst                     mediumconst  000000
 __pbitbssCOMRAM                   bitbssCOMRAM 000210
 __pbssBANK0                       bssBANK0     000060
 __pbssCOMRAM                      bssCOMRAM    000022
-__pcinit                          cinit        002226
+__pcinit                          cinit        002234
 __pcstackBANK0                    cstackBANK0  00009E
 __pcstackCOMRAM                   cstackCOMRAM 000001
 __pdataBANK0                      dataBANK0    0000B4
 __pdataCOMRAM                     dataCOMRAM   000039
-__pidataBANK0                     idataBANK0   002489
-__pidataCOMRAM                    idataCOMRAM  002480
+__pidataBANK0                     idataBANK0   002497
+__pidataCOMRAM                    idataCOMRAM  00248E
 __pintcode                        intcode      000008
 __pintcode_body                   intcode_body 001F6C
 __ptext0                          text0        001DD8
 __ptext1                          text1        00208A
 __ptext10                         text10       0016E0
 __ptext11                         text11       00001A
-__ptext12                         text12       00246E
+__ptext12                         text12       00247C
 __ptext13                         text13       001A3E
 __ptext14                         text14       000A60
-__ptext15                         text15       002428
-__ptext17                         text17       00228E
+__ptext15                         text15       002436
+__ptext17                         text17       00229C
 __ptext18                         text18       0011D4
-__ptext19                         text19       002446
-__ptext2                          text2        002402
-__ptext3                          text3        00245C
-__ptext4                          text4        002356
-__ptext5                          text5        0023A6
-__ptext6                          text6        0023D8
-__ptext7                          text7        00218C
-__ptext8                          text8        0022F6
+__ptext19                         text19       002454
+__ptext2                          text2        002410
+__ptext3                          text3        00246A
+__ptext4                          text4        002364
+__ptext5                          text5        00218C
+__ptext6                          text6        0023B4
+__ptext7                          text7        0023E6
+__ptext8                          text8        002304
 __ptext9                          text9        001C26
 __ramtop                          ramtop       000300
 __size_of_CANInitialize           (abs)        000000
@@ -681,9 +681,9 @@ _analogic_brake_old               bssCOMRAM    000035
 _buffer                           bssCOMRAM    000036
 _can_interpreter                  text13       001A3E
 _clock_counter_reference          bssCOMRAM    00002E
-_configurazione_iniziale          text7        00218C
+_configurazione_iniziale          text5        00218C
 _data                             bssBANK0     000086
-_delay_ms                         text5        0023A6
+_delay_ms                         text6        0023B4
 _delay_quartz_frequency_value     dataCOMRAM   000039
 _dir                              bitbssCOMRAM 000211
 _id                               bssCOMRAM    000022
@@ -693,7 +693,7 @@ _msg                              bssBANK0     00006F
 _newMessageCan                    bitbssCOMRAM 000212
 _newMessageUsart                  bitbssCOMRAM 000213
 _previousTimeCounter              bssCOMRAM    000026
-_putsUSART                        text2        002402
+_putsUSART                        text2        002410
 _right_speed                      bssCOMRAM    000032
 _sendMessage                      bitbssCOMRAM 000214
 _set_speed                        bssBANK0     00008E
@@ -702,12 +702,12 @@ _set_steering                     bssBANK0     000096
 _set_steering_old                 bssCOMRAM    000037
 _spam_counter                     bssCOMRAM    000038
 _timeCounter                      bssCOMRAM    00002A
-_usart_interpreter                text4        002356
-_usart_rx                         text17       00228E
+_usart_interpreter                text4        002364
+_usart_rx                         text17       00229C
 _usart_tx                         text1        00208A
 btemp                             temp         000043
 delay_ms@value_ms                 cstackBANK0  0000A0
-end_of_initialization             cinit        002280
+end_of_initialization             cinit        00228E
 int$flags                         temp         000043
 int_func                          intcode_body 001F6C
 intlevel0                         text         000000
@@ -718,7 +718,7 @@ putsUSART@data                    cstackCOMRAM 00001E
 stackhi                           (abs)        0002FF
 stacklo                           (abs)        0000BC
 start                             init         000016
-start_initialization              cinit        002226
+start_initialization              cinit        002234
 usart_rx@i                        cstackCOMRAM 000002
 usart_tx@i                        cstackBANK0  00009E
 usart_tx@i_3324                   cstackBANK0  00009F
@@ -885,6 +885,38 @@ Total ram usage:        0 bytes
  This function uses a non-reentrant model
 
 
+ *************** function _configurazione_iniziale *****************
+ Defined at:
+		line 283 in file "CanToSerial.c"
+ Parameters:    Size  Location     Type
+		None
+ Auto vars:     Size  Location     Type
+		None
+ Return value:  Size  Location     Type
+		None               void
+ Registers used:
+		wreg, status,2, status,0, prodl, prodh, cstack
+ Tracked objects:
+		On entry : 
+		On exit  : 
+		Unchanged: 
+ Data sizes:     COMRAM   BANK0   BANK1   BANK2
+      Params:         0       0       0       0
+      Locals:         0       0       0       0
+      Temps:          0       0       0       0
+      Totals:         0       0       0       0
+Total ram usage:        0 bytes
+ Hardware stack levels used:    1
+ Hardware stack levels required when called:    4
+ This function calls:
+		_CANInitialize
+		_OpenUSART
+		_delay_ms
+ This function is called by:
+		_main
+ This function uses a non-reentrant model
+
+
  *************** function _delay_ms *****************
  Defined at:
 		line 61 in file "D:/Documenti/LaurTec_PIC_libraries_v_3.3.0/src\delay.c"
@@ -912,6 +944,7 @@ Total ram usage:        2 bytes
 		___wmul
  This function is called by:
 		_main
+		_configurazione_iniziale
 		_delay_s
  This function uses a non-reentrant model
 
@@ -944,37 +977,6 @@ Total ram usage:        6 bytes
 		Nothing
  This function is called by:
 		_delay_ms
- This function uses a non-reentrant model
-
-
- *************** function _configurazione_iniziale *****************
- Defined at:
-		line 283 in file "CanToSerial.c"
- Parameters:    Size  Location     Type
-		None
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-		None               void
- Registers used:
-		wreg, status,2, status,0, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2
-      Params:         0       0       0       0
-      Locals:         0       0       0       0
-      Temps:          0       0       0       0
-      Totals:         0       0       0       0
-Total ram usage:        0 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    4
- This function calls:
-		_CANInitialize
-		_OpenUSART
- This function is called by:
-		_main
  This function uses a non-reentrant model
 
 
@@ -1367,55 +1369,55 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\pic18\plib\USART\uopen.c
-		_OpenUSART     		CODE           	22F6	0000	97
+		_OpenUSART     		CODE           	2304	0000	97
 
 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\pic18\plib\USART\uopen.c estimated size: 97
 
 D:/Documenti/LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h
 		_CANSetFilter  		CODE           	001A	0000	2631
-		_CANisRxReady  		CODE           	2446	0000	23
+		_CANisRxReady  		CODE           	2454	0000	23
 		_CANreceiveMessage		CODE           	11D4	0000	1293
 		_CANsendMessage		CODE           	0A60	0000	1909
 		_CANInitialize 		CODE           	1C26	0000	435
-		_CANOperationMode		CODE           	246E	0000	19
-		_CANisTxReady  		CODE           	2428	0000	31
+		_CANOperationMode		CODE           	247C	0000	19
+		_CANisTxReady  		CODE           	2436	0000	31
 		_CANSetMask    		CODE           	16E0	0000	863
 
 D:/Documenti/LaurTec_PIC_libraries_v_3.3.0/inc\CANlib.h estimated size: 7204
 
 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\pic18\plib\USART\uputs.c
-		_putsUSART     		CODE           	2402	0000	39
+		_putsUSART     		CODE           	2410	0000	39
 
 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\pic18\plib\USART\uputs.c estimated size: 39
 
 D:/Documenti/LaurTec_PIC_libraries_v_3.3.0/src\delay.c
-		_delay_ms      		CODE           	23A6	0000	51
+		_delay_ms      		CODE           	23B4	0000	51
 
 D:/Documenti/LaurTec_PIC_libraries_v_3.3.0/src\delay.c estimated size: 51
 
 shared
-		__initialization		CODE           	2226	0000	91
+		__initialization		CODE           	2234	0000	91
 
 shared estimated size: 91
 
 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\pic18\plib\USART\uwrite.c
-		_WriteUSART    		CODE           	245C	0000	19
+		_WriteUSART    		CODE           	246A	0000	19
 
 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\pic18\plib\USART\uwrite.c estimated size: 19
 
 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\Umul16.c
-		___wmul        		CODE           	23D8	0000	43
+		___wmul        		CODE           	23E6	0000	43
 
 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\Umul16.c estimated size: 43
 
 CanToSerial.c
-		_usart_interpreter		CODE           	2356	0000	81
-		_configurazione_iniziale		CODE           	218C	0000	155
+		_usart_interpreter		CODE           	2364	0000	81
+		_configurazione_iniziale		CODE           	218C	0000	169
 		_usart_tx      		CODE           	208A	0000	259
 		_main          		CODE           	1DD8	0000	405
 		_can_interpreter		CODE           	1A3E	0000	489
-		_usart_rx      		CODE           	228E	0000	105
+		_usart_rx      		CODE           	229C	0000	105
 		_ISR_alta      		CODE           	0008	0000	301
 
-CanToSerial.c estimated size: 1795
+CanToSerial.c estimated size: 1809
 

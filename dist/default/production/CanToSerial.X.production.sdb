@@ -1235,7 +1235,7 @@ CAN_RX_BUFFER_2_OVFL 2
 ]
 [u S2763 . 1 `S2745 1 . 1 0 `S2754 1 . 1 0 `S2757 1 . 1 0 `S2760 1 . 1 0 ]
 [v _IPR1bits IPR1bits `VES2763  1 e 1 @3999 ]
-[s S2922 . 1 `uc 1 ECCP1IE 1 0 :1:0 
+[s S2871 . 1 `uc 1 ECCP1IE 1 0 :1:0 
 `uc 1 TMR3IE 1 0 :1:1 
 `uc 1 HLVDIE 1 0 :1:2 
 `uc 1 BCLIE 1 0 :1:3 
@@ -1245,11 +1245,11 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 OSCFIE 1 0 :1:7 
 ]
 "30964
-[s S2931 . 1 `uc 1 . 1 0 :2:0 
+[s S2880 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LVDIE 1 0 :1:2 
 ]
-[u S2934 . 1 `S2922 1 . 1 0 `S2931 1 . 1 0 ]
-[v _PIE2bits PIE2bits `VES2934  1 e 1 @4000 ]
+[u S2883 . 1 `S2871 1 . 1 0 `S2880 1 . 1 0 ]
+[v _PIE2bits PIE2bits `VES2883  1 e 1 @4000 ]
 [s S2095 . 1 `uc 1 ECCP1IF 1 0 :1:0 
 `uc 1 TMR3IF 1 0 :1:1 
 `uc 1 HLVDIF 1 0 :1:2 
@@ -1265,7 +1265,7 @@ CAN_RX_BUFFER_2_OVFL 2
 ]
 [u S2107 . 1 `S2095 1 . 1 0 `S2104 1 . 1 0 ]
 [v _PIR2bits PIR2bits `VES2107  1 e 1 @4001 ]
-[s S2894 . 1 `uc 1 ECCP1IP 1 0 :1:0 
+[s S2843 . 1 `uc 1 ECCP1IP 1 0 :1:0 
 `uc 1 TMR3IP 1 0 :1:1 
 `uc 1 HLVDIP 1 0 :1:2 
 `uc 1 BCLIP 1 0 :1:3 
@@ -1275,12 +1275,12 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 OSCFIP 1 0 :1:7 
 ]
 "31094
-[s S2903 . 1 `uc 1 . 1 0 :2:0 
+[s S2852 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LVDIP 1 0 :1:2 
 ]
-[u S2906 . 1 `S2894 1 . 1 0 `S2903 1 . 1 0 ]
-[v _IPR2bits IPR2bits `VES2906  1 e 1 @4002 ]
-[s S2787 . 1 `uc 1 RXB0IE 1 0 :1:0 
+[u S2855 . 1 `S2843 1 . 1 0 `S2852 1 . 1 0 ]
+[v _IPR2bits IPR2bits `VES2855  1 e 1 @4002 ]
+[s S2899 . 1 `uc 1 RXB0IE 1 0 :1:0 
 `uc 1 RXB1IE 1 0 :1:1 
 `uc 1 TXB0IE 1 0 :1:2 
 `uc 1 TXB1IE 1 0 :1:3 
@@ -1290,21 +1290,21 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 IRXIE 1 0 :1:7 
 ]
 "31172
-[s S2796 . 1 `uc 1 FIFOWMIE 1 0 :1:0 
+[s S2908 . 1 `uc 1 FIFOWMIE 1 0 :1:0 
 `uc 1 RXBnIE 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 TXBnIE 1 0 :1:4 
 ]
-[s S2801 . 1 `uc 1 FIFOMWIE 1 0 :1:0 
+[s S2913 . 1 `uc 1 FIFOMWIE 1 0 :1:0 
 ]
-[s S2803 . 1 `uc 1 . 1 0 :1:0 
+[s S2915 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RXBNIE 1 0 :1:1 
 ]
-[s S2806 . 1 `uc 1 . 1 0 :4:0 
+[s S2918 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TXBNIE 1 0 :1:4 
 ]
-[u S2809 . 1 `S2787 1 . 1 0 `S2796 1 . 1 0 `S2801 1 . 1 0 `S2803 1 . 1 0 `S2806 1 . 1 0 ]
-[v _PIE3bits PIE3bits `VES2809  1 e 1 @4003 ]
+[u S2921 . 1 `S2899 1 . 1 0 `S2908 1 . 1 0 `S2913 1 . 1 0 `S2915 1 . 1 0 `S2918 1 . 1 0 ]
+[v _PIE3bits PIE3bits `VES2921  1 e 1 @4003 ]
 [s S1974 . 1 `uc 1 RXB0IF 1 0 :1:0 
 `uc 1 RXB1IF 1 0 :1:1 
 `uc 1 TXB0IF 1 0 :1:2 
@@ -1435,11 +1435,11 @@ CAN_RX_BUFFER_2_OVFL 2
 [v _TMR3L TMR3L `VEuc  1 e 1 @4018 ]
 "32214
 [v _TMR3H TMR3H `VEuc  1 e 1 @4019 ]
-[s S2848 . 1 `uc 1 PCFG 1 0 :4:0 
+[s S2797 . 1 `uc 1 PCFG 1 0 :4:0 
 `uc 1 VCFG 1 0 :2:4 
 ]
 "32995
-[s S2851 . 1 `uc 1 PCFG0 1 0 :1:0 
+[s S2800 . 1 `uc 1 PCFG0 1 0 :1:0 
 `uc 1 PCFG1 1 0 :1:1 
 `uc 1 PCFG2 1 0 :1:2 
 `uc 1 PCFG3 1 0 :1:3 
@@ -1447,22 +1447,22 @@ CAN_RX_BUFFER_2_OVFL 2
 `uc 1 VCFG1 1 0 :1:5 
 ]
 "32995
-[s S2858 . 1 `uc 1 . 1 0 :3:0 
+[s S2807 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CHSN3 1 0 :1:3 
 ]
 "32995
-[s S2861 . 1 `uc 1 . 1 0 :4:0 
+[s S2810 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 VCFG01 1 0 :1:4 
 ]
 "32995
-[s S2864 . 1 `uc 1 . 1 0 :5:0 
+[s S2813 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 VCFG11 1 0 :1:5 
 ]
 "32995
-[u S2867 . 1 `S2848 1 . 1 0 `S2851 1 . 1 0 `S2858 1 . 1 0 `S2861 1 . 1 0 `S2864 1 . 1 0 ]
+[u S2816 . 1 `S2797 1 . 1 0 `S2800 1 . 1 0 `S2807 1 . 1 0 `S2810 1 . 1 0 `S2813 1 . 1 0 ]
 "32995
 "32995
-[v _ADCON1bits ADCON1bits `VES2867  1 e 1 @4033 ]
+[v _ADCON1bits ADCON1bits `VES2816  1 e 1 @4033 ]
 [s S2632 . 1 `uc 1 NOT_BOR 1 0 :1:0 
 ]
 "33961
@@ -1646,6 +1646,11 @@ CAN_RX_BUFFER_2_OVFL 2
 {
 "220
 } 0
+"283
+[v _configurazione_iniziale configurazione_iniziale `(v  1 e 0 0 ]
+{
+"343
+} 0
 "61 D:/Documenti/LaurTec_PIC_libraries_v_3.3.0/src\delay.c
 [v _delay_ms delay_ms `(v  1 e 0 0 ]
 {
@@ -1661,11 +1666,6 @@ CAN_RX_BUFFER_2_OVFL 2
 [v ___wmul@multiplier multiplier `ui  1 p 2 28 ]
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 30 ]
 "53
-} 0
-"283 C:\Users\Simone\Desktop\CanToSerial.X\CanToSerial.c
-[v _configurazione_iniziale configurazione_iniziale `(v  1 e 0 0 ]
-{
-"339
 } 0
 "73 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\pic18\plib\USART\uopen.c
 [v _OpenUSART OpenUSART `(v  1 e 0 0 ]

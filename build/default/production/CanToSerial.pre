@@ -20717,9 +20717,7 @@ IPR3bits.RXB1IP = 1;
 IPR3bits.RXB0IP = 1;
 IPR1bits.RCIP = 1;
 
-PIE3bits.RXB1IE = 1;
-PIE3bits.RXB0IE = 1;
-PIE1bits.RCIE = 1;
+
 
 LATA = 0x00;
 TRISA = 0b01111101;
@@ -20753,4 +20751,10 @@ PIE2bits.TMR3IE = 1;
 
 INTCONbits.GIEH = 1;
 INTCONbits.GIEL = 1;
+
+
+PIE3bits.RXB1IE = 1;
+PIE3bits.RXB0IE = 1;
+PIE1bits.RCIE = 1;
+delay_ms(300);
 }

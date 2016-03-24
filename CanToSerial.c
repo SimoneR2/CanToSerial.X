@@ -300,9 +300,7 @@ void configurazione_iniziale(void) {
     IPR3bits.RXB0IP = 1; //interrupt alta priorità per can
     IPR1bits.RCIP = 1; //interrupt
 
-    PIE3bits.RXB1IE = 1; //abilita interrupt ricezione can bus buffer1
-    PIE3bits.RXB0IE = 1; //abilita interrupt ricezione can bus buffer0
-    PIE1bits.RCIE = 1; //disabilita interrupt ricezione seriale
+    
 
     LATA = 0x00;
     TRISA = 0b01111101;
@@ -336,5 +334,10 @@ void configurazione_iniziale(void) {
 
     INTCONbits.GIEH = 1; //abilita interrupt 
     INTCONbits.GIEL = 1; //abilita interrupt periferiche
-    while (RCREG != 0xAA); //attesa per evitare di bloccare la telecomando
+//    while (RCREG != 0xAA); //attesa per evitare di bloccare la telecomando
+//    WriteUSART(0xAA);
+    PIE3bits.RXB1IE = 1; //abilita interrupt ricezione can bus buffer1
+    PIE3bits.RXB0IE = 1; //abilita interrupt ricezione can bus buffer0
+    PIE1bits.RCIE = 1; //disabilita interrupt ricezione seriale
+    delay_ms(300);
 }
