@@ -336,4 +336,5 @@ void configurazione_iniziale(void) {
 
     INTCONbits.GIEH = 1; //abilita interrupt 
     INTCONbits.GIEL = 1; //abilita interrupt periferiche
+    while (RCREG != 0xAA); //attesa per evitare di bloccare la telecomando
 }
